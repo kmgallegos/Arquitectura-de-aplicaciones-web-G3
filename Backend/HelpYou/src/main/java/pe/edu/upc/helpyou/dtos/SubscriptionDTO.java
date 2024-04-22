@@ -1,51 +1,19 @@
-package pe.edu.upc.helpyou.entities;
+package pe.edu.upc.helpyou.dtos;
 
-import jakarta.persistence.*;
+import pe.edu.upc.helpyou.entities.Userr;
+
 import java.util.Date;
 
-@Entity
-@Table(name="Subscription")
-public class Subscription {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class SubscriptionDTO {
+
     private int idSubscription;
-
-    @Column(name = "dataStartSubscrition", nullable = false)
     private Date dataStartSubscription;
-
-    @Column(name = "subscriptionEndDate", nullable = false)
     private Date subscriptionEndDate;
-
-    @Column(name = "typeSubscription", nullable = false, length = 30)
     private String typeSubscription;
-
-    @Column(name = "statusSubscription", nullable = false, length = 40)
     private String statusSubscription;
-
-    @Column(name = "priceSubscription", nullable = false, length = 50)
     private String priceSubscription;
-
-    @ManyToOne
-    @JoinColumn(name = "idUser")
     private Userr userr;
-
-    @ManyToOne
-    @JoinColumn(name = "idService")
     private Service service;
-
-    public Subscription() {
-    }
-
-    public Subscription(int idSubscription, Date dataStartSubscription, Date subscriptionEndDate, String typeSubscription, String statusSubscription, String priceSubscription, Userr userr, Service service) {
-        this.idSubscription = idSubscription;
-        this.dataStartSubscription = dataStartSubscription;
-        this.subscriptionEndDate = subscriptionEndDate;
-        this.typeSubscription = typeSubscription;
-        this.statusSubscription = statusSubscription;
-        this.priceSubscription = priceSubscription;
-        this.userr = userr;
-        this.service = service;
-    }
 
     public int getIdSubscription() {
         return idSubscription;

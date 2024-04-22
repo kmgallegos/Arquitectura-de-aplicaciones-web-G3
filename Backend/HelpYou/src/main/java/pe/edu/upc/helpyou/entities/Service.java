@@ -8,32 +8,36 @@ public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idService;
-    @Column(name = "nameService", nullable = false,length = 100)
+
+    @Column(name = "nameService", nullable = false, length = 100)
     private String nameService;
-    @Column(name ="valuationService", nullable = false, length = 20)
+
+    @Column(name = "valuationService", nullable = false, length = 20)
     private String valuationService;
-    @Column(name = "addressService", nullable = true,length = 255  )
+
+    @Column(name = "addressService", nullable = true, length = 255)
     private String addressService;
+
     @Column(name = "stateService", nullable = false, length = 20)
     private String stateService;
+
     @Column(name = "descriptionService", nullable = true, length = 500)
     private String descriptionService;
+
     @Column(name = "demand", nullable = true)
     private int demand;
-
 
     public Service() {
     }
 
-
-    public Service(int demand, String descriptionService,int idService, String nameService, String valuationService, String addressService, String stateService) {
+    public Service(int idService, String nameService, String valuationService, String addressService, String stateService, String descriptionService, int demand) {
         this.idService = idService;
         this.nameService = nameService;
         this.valuationService = valuationService;
         this.addressService = addressService;
         this.stateService = stateService;
-        this.demand = demand;
         this.descriptionService = descriptionService;
+        this.demand = demand;
     }
 
     public int getIdService() {
@@ -76,9 +80,19 @@ public class Service {
         this.stateService = stateService;
     }
 
-    public String getDescriptionService() {return descriptionService;}
-    public void setDescriptionService(String descriptionService) { this.descriptionService = descriptionService;}
-    public int getDemand() { return demand; }
-    public void setDemand(int demand) { this.demand = demand; }
+    public String getDescriptionService() {
+        return descriptionService;
+    }
 
+    public void setDescriptionService(String descriptionService) {
+        this.descriptionService = descriptionService;
+    }
+
+    public int getDemand() {
+        return demand;
+    }
+
+    public void setDemand(int demand) {
+        this.demand = demand;
+    }
 }

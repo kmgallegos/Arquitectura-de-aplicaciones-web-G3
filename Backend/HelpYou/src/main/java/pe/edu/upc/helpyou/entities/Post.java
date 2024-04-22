@@ -1,6 +1,7 @@
 package pe.edu.upc.helpyou.entities;
-import jakarta.persistence.*;
 
+import jakarta.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -9,10 +10,13 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPost;
+
     @Column(name = "name", nullable = false, length = 255)
     private String name;
-    @Column(name = "queryDescriptio", nullable = false, length = 500)
-    private String queryDescriptio;
+
+    @Column(name = "queryDescription", nullable = false, length = 500)
+    private String queryDescription;
+
     @Column(name = "datePost", nullable = false)
     private Date datePost;
 
@@ -20,12 +24,12 @@ public class Post {
     @JoinColumn(name = "Forum_id")
     private Forum forum;
 
-    public Post(){}
+    public Post() {}
 
-    public Post(int idPost, String name, String queryDescriptio, Date datePost, Forum forum) {
+    public Post(int idPost, String name, String queryDescription, Date datePost, Forum forum) {
         this.idPost = idPost;
         this.name = name;
-        this.queryDescriptio = queryDescriptio;
+        this.queryDescription = queryDescription;
         this.datePost = datePost;
         this.forum = forum;
     }
@@ -38,8 +42,8 @@ public class Post {
         return name;
     }
 
-    public String getQueryDescriptio() {
-        return queryDescriptio;
+    public String getQueryDescription() {
+        return queryDescription;
     }
 
     public Date getDatePost() {
@@ -58,8 +62,8 @@ public class Post {
         this.name = name;
     }
 
-    public void setQueryDescriptio(String queryDescriptio) {
-        this.queryDescriptio = queryDescriptio;
+    public void setQueryDescription(String queryDescription) {
+        this.queryDescription = queryDescription;
     }
 
     public void setDatePost(Date datePost) {

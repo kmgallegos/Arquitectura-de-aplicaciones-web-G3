@@ -1,27 +1,10 @@
-package pe.edu.upc.helpyou.entities;
+package pe.edu.upc.helpyou.dtos;
 
-import jakarta.persistence.*;
+public class Type_ServiceDTO {
 
-@Entity
-@Table(name = "Type_Service")
-public class Type_Service {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTypeService;
-
-    @Column(name = "descriptionTService", nullable = false, length = 255)
     private String descriptionTService;
-
-    @ManyToOne
-    @JoinColumn(name = "Service_id")
     private Service service;
-
-    public Type_Service() {}
-
-    public Type_Service(String descriptionTService, Service service) {
-        this.descriptionTService = descriptionTService;
-        this.service = service;
-    }
 
     public int getIdTypeService() {
         return idTypeService;
