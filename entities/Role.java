@@ -44,3 +44,9 @@ public class Role {
         this.descriptionRole = descriptionRole;
     }
 }
+
+
+    public void setDescriptionRole(String descriptionRole) {
+        this.descriptionRole = descriptionRole;
+    }
+}
