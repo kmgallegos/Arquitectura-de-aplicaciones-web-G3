@@ -8,41 +8,46 @@ public class Userr {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUser;
-    @Column(name = "firstNameUser", nullable = false, length = 100)
-    private String firstNameUser;
-    @Column(name = "lastNameUser", nullable = false, length = 100)
-    private String lastNameUser;
+
+    @Column(name = "nameUser", nullable = false, length = 100)
+    private String nameUser;
+
     @Column(name = "phoneNumberUser", nullable = false, length = 9)
     private String phoneNumberUser;
+
     @Column(name = "regionUser", nullable = false, length = 50)
     private String regionUser;
-    @Column(name = "dniUser", nullable = false, length = 50)
-    private String dniUser;
-    @Column(name = "photoUser") //puede ser nulo
+
+    @Column(name = "dniUser", nullable = false, length = 8)
+    private int dniUser;
+
+    @Column(name = "photoUser")
     private String photoUser;
-    @Column(name = "passwordUser", nullable = false, length = 50)
-    private String passwordUser;
-    @Column(name = "emailUser", nullable = false, length = 50)
-    private String emailUser;
+
+    @Column(name = "password", nullable = false, length = 50)
+    private String password;
+
+    @Column(name = "email", nullable = false, length = 50)
+    private String email;
 
     @ManyToOne
-    @JoinColumn(name = "idRole")
+    @JoinColumn(name = "Role_id")
     private Role role;
 
-    public Userr(int idUser, String firstNameUser, String lastNameUser, String phoneNumberUser, String regionUser, String dniUser, String photoUser, String passwordUser, String emailUser, Role role) {
+    public Userr() {
+    }
+
+    public Userr(int idUser, String nameUser, String phoneNumberUser, String regionUser, int dniUser, String photoUser, String password, String email, Role role) {
         this.idUser = idUser;
-        this.firstNameUser = firstNameUser;
-        this.lastNameUser = lastNameUser;
+        this.nameUser = nameUser;
         this.phoneNumberUser = phoneNumberUser;
         this.regionUser = regionUser;
         this.dniUser = dniUser;
         this.photoUser = photoUser;
-        this.passwordUser = passwordUser;
-        this.emailUser = emailUser;
+        this.password = password;
+        this.email = email;
         this.role = role;
     }
-
-    public Userr(){}
 
     public int getIdUser() {
         return idUser;
@@ -52,20 +57,12 @@ public class Userr {
         this.idUser = idUser;
     }
 
-    public String getFirstNameUser() {
-        return firstNameUser;
+    public String getNameUser() {
+        return nameUser;
     }
 
-    public void setFirstNameUser(String firstNameUser) {
-        this.firstNameUser = firstNameUser;
-    }
-
-    public String getLastNameUser() {
-        return lastNameUser;
-    }
-
-    public void setLastNameUser(String lastNameUser) {
-        this.lastNameUser = lastNameUser;
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
     }
 
     public String getPhoneNumberUser() {
@@ -84,11 +81,11 @@ public class Userr {
         this.regionUser = regionUser;
     }
 
-    public String getDniUser() {
+    public int getDniUser() {
         return dniUser;
     }
 
-    public void setDniUser(String dniUser) {
+    public void setDniUser(int dniUser) {
         this.dniUser = dniUser;
     }
 
@@ -100,19 +97,27 @@ public class Userr {
         this.photoUser = photoUser;
     }
 
-    public String getPasswordUser() {
-        return passwordUser;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswordUser(String passwordUser) {
-        this.passwordUser = passwordUser;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getEmailUser() {
-        return emailUser;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailUser(String emailUser) {
-        this.emailUser = emailUser;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
