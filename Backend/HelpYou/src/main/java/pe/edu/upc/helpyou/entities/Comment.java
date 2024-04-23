@@ -6,30 +6,18 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idComment;
-
     @Column (name = "descriptionComment", nullable = false,length=255)
     private String descriptionComment;
 
     @ManyToOne
     @JoinColumn(name = "idUser")
-
-    @Column (name = "description", nullable = false,length=255)
-    private String description;
-
-    @ManyToOne
-    @JoinColumn(name = "User_id")
     private Userr userr;
 
     public Comment() {}
 
-
     public Comment(int idComment, String descriptionComment, Userr userr) {
         this.idComment = idComment;
         this.descriptionComment = descriptionComment;
-
-    public Comment(int idComment, String description, Userr userr) {
-        this.idComment = idComment;
-        this.description = description;
         this.userr = userr;
     }
 
@@ -45,10 +33,4 @@ public class Comment {
     public void setUser(Userr userr) {
         this.userr = userr;
     }
-
-  public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
-    public Userr getUserr() { return userr; }
-    public void setUserr(Userr userr) { this.userr = userr; }
-
 }

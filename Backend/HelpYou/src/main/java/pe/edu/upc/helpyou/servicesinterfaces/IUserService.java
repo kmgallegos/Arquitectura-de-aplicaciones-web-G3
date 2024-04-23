@@ -11,7 +11,7 @@ public interface IUserService {
     public Userr listId(int id);
     public List<Userr> findByDniUser(String dni);
 
-    public void insert (Userr userr);
-    public List<Userr> list();
+
+    Userr findByfirstNameUser(String firstNameUser);
 }
 
