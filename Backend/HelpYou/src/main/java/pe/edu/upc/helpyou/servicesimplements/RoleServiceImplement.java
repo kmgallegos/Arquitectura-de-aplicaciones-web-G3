@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.helpyou.entities.Role;
 import pe.edu.upc.helpyou.repositories.IRoleRepository;
+import pe.edu.upc.helpyou.servicesinterfaces.IRoleService;
 
 import java.util.List;
 

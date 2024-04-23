@@ -8,36 +8,31 @@ public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idService;
-
-    @Column(name = "nameService", nullable = false, length = 100)
+    @Column(name = "nameService", nullable = false,length = 100)
     private String nameService;
-
-    @Column(name = "valuationService", nullable = false, length = 20)
-    private String valuationService;
-
-    @Column(name = "addressService", nullable = true, length = 255)
-    private String addressService;
-
-    @Column(name = "stateService", nullable = false, length = 20)
-    private String stateService;
-
-    @Column(name = "descriptionService", nullable = true, length = 500)
+    @Column(name = "descriptionService", length = 500)
     private String descriptionService;
+    @Column(name ="valuationService", length = 20)
+    private String valuationService;
+    @Column(name = "addressService", length = 255  )
+    private String addressService;
+    @Column(name = "stateService", length = 20)
+    private String stateService;
+    @Column(name = "demandService")
+    private int demandService;
 
-    @Column(name = "demand", nullable = true)
-    private int demand;
 
     public Service() {
     }
 
-    public Service(int idService, String nameService, String valuationService, String addressService, String stateService, String descriptionService, int demand) {
+    public Service(int idService, String nameService, String descriptionService, String valuationService, String addressService, String stateService, int demandService) {
         this.idService = idService;
         this.nameService = nameService;
+        this.descriptionService = descriptionService;
         this.valuationService = valuationService;
         this.addressService = addressService;
         this.stateService = stateService;
-        this.descriptionService = descriptionService;
-        this.demand = demand;
+        this.demandService = demandService;
     }
 
     public int getIdService() {
@@ -80,19 +75,14 @@ public class Service {
         this.stateService = stateService;
     }
 
-    public String getDescriptionService() {
-        return descriptionService;
+    public String getDescriptionService() {return descriptionService;}
+    public void setDescriptionService(String descriptionService) { this.descriptionService = descriptionService;}
+
+    public int getDemandService() {
+        return demandService;
     }
 
-    public void setDescriptionService(String descriptionService) {
-        this.descriptionService = descriptionService;
-    }
-
-    public int getDemand() {
-        return demand;
-    }
-
-    public void setDemand(int demand) {
-        this.demand = demand;
+    public void setDemandService(int demandService) {
+        this.demandService = demandService;
     }
 }

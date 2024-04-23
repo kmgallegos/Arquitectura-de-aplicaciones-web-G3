@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.helpyou.entities.Userr;
 import pe.edu.upc.helpyou.repositories.IUserRepository;
+import pe.edu.upc.helpyou.servicesinterfaces.IUserService;
+
 
 import java.util.List;
 
@@ -27,6 +29,13 @@ public class UserServiceImplement implements IUserService {
     @Override
     public List<Userr> findByDniUser(String dni) {
         return uR.findByDniUser(dni);
+    }
+
+
+
+    @Override
+    public Userr findByfirstNameUser(String firstNameUser) {
+        return uR.findByfirstNameUser(firstNameUser);
     }
 
 

@@ -1,52 +1,62 @@
 package pe.edu.upc.helpyou.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "Userr")
-public class Userr {
+public class Userr implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUser;
-
-    @Column(name = "nameUser", nullable = false, length = 100)
-    private String nameUser;
-
+    @Column(name = "firstNameUser", nullable = false, length = 100)
+    private String firstNameUser;
+    @Column(name = "lastNameUser", nullable = false, length = 100)
+    private String lastNameUser;
     @Column(name = "phoneNumberUser", nullable = false, length = 9)
     private String phoneNumberUser;
-
     @Column(name = "regionUser", nullable = false, length = 50)
     private String regionUser;
-
     @Column(name = "dniUser", nullable = false, length = 8)
-    private int dniUser;
-
-    @Column(name = "photoUser")
+    private String dniUser;
+    @Column(name = "photoUser") //puede ser nulo
     private String photoUser;
+    @Column(name = "passwordUser")
+    private String passwordUser;
+    @Column(name = "emailUser")
+    private String emailUser;
 
-    @Column(name = "password", nullable = false, length = 50)
-    private String password;
+    private Boolean enabled;
 
-    @Column(name = "email", nullable = false, length = 50)
-    private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "Role_id")
-    private Role role;
+    //@ManyToOne
+    //@JoinColumn(name = "idRole")
+    //private Role role;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    private List<Role> rol;
 
     public Userr() {
     }
 
-    public Userr(int idUser, String nameUser, String phoneNumberUser, String regionUser, int dniUser, String photoUser, String password, String email, Role role) {
+    public Userr(int idUser, String firstNameUser, String lastNameUser, String phoneNumberUser, String regionUser, String dniUser, String photoUser, String passwordUser, String emailUser, Boolean enabled, List<Role> rol) {
         this.idUser = idUser;
-        this.nameUser = nameUser;
+        this.firstNameUser = firstNameUser;
+        this.lastNameUser = lastNameUser;
         this.phoneNumberUser = phoneNumberUser;
         this.regionUser = regionUser;
         this.dniUser = dniUser;
         this.photoUser = photoUser;
-        this.password = password;
-        this.email = email;
-        this.role = role;
+        this.passwordUser = passwordUser;
+        this.emailUser = emailUser;
+        this.enabled = enabled;
+        this.rol = rol;
     }
 
     public int getIdUser() {
@@ -57,12 +67,20 @@ public class Userr {
         this.idUser = idUser;
     }
 
-    public String getNameUser() {
-        return nameUser;
+    public String getFirstNameUser() {
+        return firstNameUser;
     }
 
-    public void setNameUser(String nameUser) {
-        this.nameUser = nameUser;
+    public void setFirstNameUser(String firstNameUser) {
+        this.firstNameUser = firstNameUser;
+    }
+
+    public String getLastNameUser() {
+        return lastNameUser;
+    }
+
+    public void setLastNameUser(String lastNameUser) {
+        this.lastNameUser = lastNameUser;
     }
 
     public String getPhoneNumberUser() {
@@ -81,11 +99,11 @@ public class Userr {
         this.regionUser = regionUser;
     }
 
-    public int getDniUser() {
+    public String getDniUser() {
         return dniUser;
     }
 
-    public void setDniUser(int dniUser) {
+    public void setDniUser(String dniUser) {
         this.dniUser = dniUser;
     }
 
@@ -97,27 +115,40 @@ public class Userr {
         this.photoUser = photoUser;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPasswordUser() {
+        return passwordUser;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswordUser(String passwordUser) {
+        this.passwordUser = passwordUser;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmailUser() {
+        return emailUser;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmailUser(String emailUser) {
+        this.emailUser = emailUser;
     }
 
-    public Role getRole() {
-        return role;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public List<Role> getRol() {
+        return rol;
+    }
+
+    public void setRol(List<Role> rol) {
+        this.rol = rol;
     }
 }
+
+
+
+
+
