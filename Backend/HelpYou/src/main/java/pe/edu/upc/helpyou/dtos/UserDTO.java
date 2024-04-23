@@ -1,5 +1,7 @@
 package pe.edu.upc.helpyou.dtos;
 
+import pe.edu.upc.helpyou.entities.Role;
+
 public class UserDTO {
     private int idUser;
     private String firstNameUser;
@@ -11,18 +13,6 @@ public class UserDTO {
     private String passwordUser;
     private String emailUser;
     private Role role;
-  
-import jakarta.persistence.Column;
-
-public class UserDTO {
-    private int idUser;
-    private String nameUser;
-    private String phoneNumberUser;
-    private String regionUser;
-    private int dniUser;
-    private String photoUser;
-    private String password;
-    private String email;
 
     public int getIdUser() {
         return idUser;
@@ -46,13 +36,6 @@ public class UserDTO {
 
     public void setLastNameUser(String lastNameUser) {
         this.lastNameUser = lastNameUser;
-
-      public String getNameUser() {
-        return nameUser;
-    }
-
-    public void setNameUser(String nameUser) {
-        this.nameUser = nameUser;
     }
 
     public String getPhoneNumberUser() {
@@ -76,12 +59,6 @@ public class UserDTO {
     }
 
     public void setDniUser(String dniUser) {
-
-    public int getDniUser() {
-        return dniUser;
-    }
-
-    public void setDniUser(int dniUser) {
         this.dniUser = dniUser;
     }
 
@@ -115,20 +92,5 @@ public class UserDTO {
 
     public void setRole(Role role) {
         this.role = role;
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 }

@@ -1,5 +1,6 @@
 package pe.edu.upc.helpyou.dtos;
 
+import pe.edu.upc.helpyou.entities.Service;
 import pe.edu.upc.helpyou.entities.Userr;
 
 import java.util.Date;

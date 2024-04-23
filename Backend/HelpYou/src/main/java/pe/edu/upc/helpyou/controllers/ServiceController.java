@@ -17,23 +17,21 @@ public class ServiceController {
     private IServiceService sS;
 
     @PostMapping
-    public void register(ServiceDTO s)
-    {
+    public void register(ServiceDTO s) {
         ModelMapper m =new ModelMapper();
         Service srv=m.map(s,Service.class);
         sS.insert(srv);
     }
 
     @GetMapping
-    public List<ServiceDTO> list()
-    {
+    public List<ServiceDTO> list() {
         return sS.list().stream().map(y->{
             ModelMapper m = new ModelMapper();
             return m.map(y,ServiceDTO.class);
         }).collect(Collectors.toList());
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable("id")Integer id)
     {
         sS.delete(id);
