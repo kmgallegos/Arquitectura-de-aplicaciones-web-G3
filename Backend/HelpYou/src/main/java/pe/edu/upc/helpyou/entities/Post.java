@@ -1,7 +1,8 @@
 package pe.edu.upc.helpyou.entities;
-import jakarta.persistence.*;
 
+import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name="Post")
@@ -9,22 +10,25 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPost;
-    @Column(name = "namePost", nullable = false)
-    private String namePost;
+
+    @Column(name = "name", nullable = false, length = 255)
+    private String name;
+
     @Column(name = "queryDescription", nullable = false, length = 500)
     private String queryDescription;
+
     @Column(name = "datePost", nullable = false)
-    private LocalDate datePost;
+    private Date datePost;
 
     @ManyToOne
-    @JoinColumn(name = "idForum")
+    @JoinColumn(name = "Forum_id")
     private Forum forum;
 
-    public Post(){}
+    public Post() {}
 
-    public Post(int idPost, String namePost, String queryDescription, LocalDate datePost, Forum forum) {
+    public Post(int idPost, String name, String queryDescription, Date datePost, Forum forum) {
         this.idPost = idPost;
-        this.namePost = namePost;
+        this.name = name;
         this.queryDescription = queryDescription;
         this.datePost = datePost;
         this.forum = forum;
@@ -34,15 +38,15 @@ public class Post {
         return idPost;
     }
 
-    public String getNamePost() {
-        return namePost;
+    public String getName() {
+        return name;
     }
 
     public String getQueryDescription() {
         return queryDescription;
     }
 
-    public LocalDate getDatePost() {
+    public Date getDatePost() {
         return datePost;
     }
 
@@ -54,14 +58,15 @@ public class Post {
         this.idPost = idPost;
     }
 
-    public void setNamePost(String namePost) {
-        this.namePost = namePost;
+    public void setName(String name) {
+        this.name = name;
     }
+
     public void setQueryDescription(String queryDescription) {
         this.queryDescription = queryDescription;
     }
 
-    public void setDatePost(LocalDate datePost) {
+    public void setDatePost(Date datePost) {
         this.datePost = datePost;
     }
 

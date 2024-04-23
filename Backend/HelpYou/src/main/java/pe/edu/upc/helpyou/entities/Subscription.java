@@ -1,7 +1,6 @@
 package pe.edu.upc.helpyou.entities;
 
 import jakarta.persistence.*;
-
 import java.util.Date;
 
 @Entity
@@ -10,18 +9,23 @@ public class Subscription {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idSubscription;
-    @Column (name = "dataStartSubscrition", nullable = false)
+
+    @Column(name = "dataStartSubscrition", nullable = false)
     private Date dataStartSubscription;
-    @Column (name = "subscriptionEndDate", nullable = false)
+
+    @Column(name = "subscriptionEndDate", nullable = false)
     private Date subscriptionEndDate;
-    @Column (name = "typeSubscription", nullable = false, length = 30)
+
+    @Column(name = "typeSubscription", nullable = false, length = 30)
     private String typeSubscription;
-    @Column (name = "statusSubscription", nullable = false, length = 40)
+
+    @Column(name = "statusSubscription", nullable = false, length = 40)
     private String statusSubscription;
-    @Column (name = "priceSubscription", nullable = false,length = 50)
+
+    @Column(name = "priceSubscription", nullable = false, length = 50)
     private String priceSubscription;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "idUser")
     private Userr userr;
 
@@ -29,7 +33,8 @@ public class Subscription {
     @JoinColumn(name = "idService")
     private Service service;
 
-    public Subscription(){}
+    public Subscription() {
+    }
 
     public Subscription(int idSubscription, Date dataStartSubscription, Date subscriptionEndDate, String typeSubscription, String statusSubscription, String priceSubscription, Userr userr, Service service) {
         this.idSubscription = idSubscription;
