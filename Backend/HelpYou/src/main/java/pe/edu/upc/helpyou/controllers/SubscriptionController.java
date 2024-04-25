@@ -4,9 +4,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.helpyou.dtos.SubscriptionDTO;
+import pe.edu.upc.helpyou.dtos.SubscriptionIncomeDTO;
 import pe.edu.upc.helpyou.entities.Subscription;
 import pe.edu.upc.helpyou.servicesinterfaces.ISubscriptionService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,5 +34,21 @@ public class SubscriptionController {
             ModelMapper m=new ModelMapper();
             return m.map(y,SubscriptionDTO.class);
         }).collect(Collectors.toList());
+    }
+    @GetMapping("/incomes")
+    public List<SubscriptionIncomeDTO> listSubscriptionIncomes() {
+
+        List<String[]> filalista = sS.findIncomesBySubscriptionStatusAndMonth();
+        List<SubscriptionIncomeDTO> dtolista = new ArrayList<>();
+
+        for (String[] columna : filalista) {
+            SubscriptionIncomeDTO dto = new SubscriptionIncomeDTO();
+            dto.setEstadoSuscripcion((String) columna[0]);
+            dto.setMes(Integer.parseInt(columna[1]));
+            dto.setIngresosGenerados(Double.parseDouble(columna[2]));
+            dtolista.add(dto);
+        }
+
+        return dtolista;
     }
 }

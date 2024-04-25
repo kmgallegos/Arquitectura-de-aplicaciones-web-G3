@@ -4,9 +4,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.helpyou.dtos.ServiceDTO;
+import pe.edu.upc.helpyou.dtos.UserByServiceDTO;
 import pe.edu.upc.helpyou.entities.Service;
 import pe.edu.upc.helpyou.servicesinterfaces.IServiceService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,5 +55,19 @@ public class ServiceController {
             ModelMapper m = new ModelMapper();
             return m.map(y,ServiceDTO.class);
         }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/Usuarios-por-servicio")
+    public List<UserByServiceDTO> getUsersByService() {
+        List<String[]> results = sS.UserByService();
+        List<UserByServiceDTO> dtos = new ArrayList<>();
+
+        for (String[] columna : results) {
+            UserByServiceDTO dto = new UserByServiceDTO();
+            dto.setTipoServicio((String) columna[0]);
+            dto.setCantidadUsuarios(Integer.parseInt(columna[1]));
+            dtos.add(dto);
+        }
+        return dtos;
     }
 }

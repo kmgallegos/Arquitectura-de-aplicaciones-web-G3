@@ -7,4 +7,5 @@ import java.util.List;
 public interface ISubscriptionService {
     public void insert(Subscription subscription);
     public List<Subscription> list();
+    List<String[]> findIncomesBySubscriptionStatusAndMonth();
 }
