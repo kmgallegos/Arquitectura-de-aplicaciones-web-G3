@@ -10,8 +10,5 @@ public interface IUserService {
     public void delete(int id);
     public Userr listId(int id);
     public List<Userr> findByDniUser(String dni);
-
-
-    Userr findByfirstNameUser(String firstNameUser);
 }
 

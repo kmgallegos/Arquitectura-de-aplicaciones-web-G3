@@ -2,14 +2,9 @@ package pe.edu.upc.helpyou.entities;
 
 import jakarta.persistence.*;
 
-import java.io.Serializable;
-import java.util.List;
-
 @Entity
-@Table(name = "Role", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "nameRole"})})
-
-public class Role implements Serializable {
-    private static final long serialVersionUID = 1L;
+@Table(name="Role")
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idRole;
@@ -18,18 +13,13 @@ public class Role implements Serializable {
     @Column(name = "descriptionR",nullable = false)
     private String descriptionR;
 
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private Userr user;
     public Role() {
     }
 
-    public Role(int idRole, String nameRole, String descriptionR, Userr user) {
+    public Role(int idRole, String nameRole, String descriptionR) {
         this.idRole = idRole;
         this.nameRole = nameRole;
         this.descriptionR = descriptionR;
-        this.user = user;
     }
 
     public int getIdRole() {
@@ -54,13 +44,5 @@ public class Role implements Serializable {
 
     public void setDescriptionR(String descriptionR) {
         this.descriptionR = descriptionR;
-    }
-
-    public Userr getUser() {
-        return user;
-    }
-
-    public void setUser(Userr user) {
-        this.user = user;
     }
 }
