@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface IUserRepository extends JpaRepository<Userr, Integer> {
     public List<Userr>findByDniUser(String dni);
-    public Userr findByfirstNameUser(String firstNameUser);
+
 }

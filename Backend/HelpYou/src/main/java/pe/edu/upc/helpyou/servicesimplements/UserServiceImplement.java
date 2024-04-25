@@ -33,11 +33,5 @@ public class UserServiceImplement implements IUserService {
 
 
 
-    @Override
-    public Userr findByfirstNameUser(String firstNameUser) {
-        return uR.findByfirstNameUser(firstNameUser);
-    }
-
-
 }
 
