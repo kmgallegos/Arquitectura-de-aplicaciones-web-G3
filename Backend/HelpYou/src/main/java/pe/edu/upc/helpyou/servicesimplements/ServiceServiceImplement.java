@@ -36,4 +36,9 @@ public class ServiceServiceImplement implements IServiceService {
     public List<pe.edu.upc.helpyou.entities.Service> findByNameService(String nameService) {
         return sR.findByNameService(nameService);
     }
+
+    @Override
+    public List<String[]> UserByService() {
+        return sR.UserByServiceDTO();
+    }
 }

@@ -24,11 +24,11 @@ public class JwtUserDetailsService implements UserDetailsService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String firstNameUser) throws UsernameNotFoundException {
-        Userr user = uR.findByfirstNameUser(firstNameUser);
+    public UserDetails loadUserByUsername(String dni) throws UsernameNotFoundException {
+        Userr user = (Userr) uR.findByDniUser(dni);
 
         if (user == null) {
-            throw new UsernameNotFoundException(String.format("User not exists", firstNameUser));
+            throw new UsernameNotFoundException(String.format("User not exists", dni));
         }
 
         List<GrantedAuthority> roles = new ArrayList<>();
@@ -37,7 +37,7 @@ public class JwtUserDetailsService implements UserDetailsService {
             roles.add(new SimpleGrantedAuthority(rol.getNameRole()));
         });
 
-        UserDetails ud = new org.springframework.security.core.userdetails.User(user.getFirstNameUser(), user.getPasswordUser(), user.getEnabled(), true, true, true, roles);
+        UserDetails ud = new org.springframework.security.core.userdetails.User(user.getDniUser(), user.getPasswordUser(), user.getEnabled(), true, true, true, roles);
 
         return ud;
     }

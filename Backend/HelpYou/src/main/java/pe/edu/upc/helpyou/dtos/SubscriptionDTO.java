@@ -16,6 +16,8 @@ public class SubscriptionDTO {
     private Userr userr;
     private Service service;
 
+
+
     public int getIdSubscription() {
         return idSubscription;
     }

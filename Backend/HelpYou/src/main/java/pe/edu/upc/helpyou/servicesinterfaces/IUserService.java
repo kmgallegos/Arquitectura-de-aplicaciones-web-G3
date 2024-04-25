@@ -12,6 +12,6 @@ public interface IUserService {
     public List<Userr> findByDniUser(String dni);
 
 
-    Userr findByfirstNameUser(String firstNameUser);
+   
 }
 
