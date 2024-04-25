@@ -11,5 +11,4 @@ public interface IServiceService {
     public Service listId(int id);
     public List<Service> findByNameService(String nameService);
     List<String[]> UserByService();
-
 }

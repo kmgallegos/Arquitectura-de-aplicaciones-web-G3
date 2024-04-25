@@ -17,6 +17,4 @@ public interface IServiceRepository extends JpaRepository<Service, Integer> {
             "INNER JOIN userr u ON s.id_user = u.id_user \n" +
             "GROUP BY  ts.descriptiontservice; \n",nativeQuery = true)
     public List<String[]> UserByServiceDTO();
-
-
 }

@@ -25,5 +25,4 @@ public class SubscriptionServiceImplement implements ISubscriptionService {
     public List<String[]> findIncomesBySubscriptionStatusAndMonth() {
         return sR.findIncomesBySubscriptionStatusAndMonth();
     }
-
 }

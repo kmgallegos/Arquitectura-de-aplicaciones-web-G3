@@ -3,6 +3,7 @@ package pe.edu.upc.helpyou.servicesimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.helpyou.entities.Card;
+import pe.edu.upc.helpyou.repositories.ICardRepository;
 import pe.edu.upc.helpyou.servicesinterfaces.ICardService;
 
 import java.util.List;

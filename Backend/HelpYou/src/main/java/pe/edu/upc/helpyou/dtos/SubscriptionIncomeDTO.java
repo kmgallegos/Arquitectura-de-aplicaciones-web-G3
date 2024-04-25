@@ -1,6 +1,7 @@
 package pe.edu.upc.helpyou.dtos;
 
 public class SubscriptionIncomeDTO {
+
     private String estadoSuscripcion;
     private int mes;
     private double ingresosGenerados;

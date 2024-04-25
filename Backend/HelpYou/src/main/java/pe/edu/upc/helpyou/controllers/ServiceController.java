@@ -55,20 +55,21 @@ public class ServiceController {
             ModelMapper m = new ModelMapper();
             return m.map(y,ServiceDTO.class);
         }).collect(Collectors.toList());
+
+
     }
 
     @GetMapping("/Usuarios-por-servicio")
     public List<UserByServiceDTO> getUsersByService() {
-            List<String[]> results = sS.UserByService();
-            List<UserByServiceDTO> dtos = new ArrayList<>();
+        List<String[]> results = sS.UserByService();
+        List<UserByServiceDTO> dtos = new ArrayList<>();
 
-            for (String[] columna : results) {
-                UserByServiceDTO dto = new UserByServiceDTO();
-                dto.setTipoServicio((String) columna[0]);
-                dto.setCantidadUsuarios(Integer.parseInt(columna[1]));
-                dtos.add(dto);
-            }
-            return dtos;
+        for (String[] columna : results) {
+            UserByServiceDTO dto = new UserByServiceDTO();
+            dto.setTipoServicio((String) columna[0]);
+            dto.setCantidadUsuarios(Integer.parseInt(columna[1]));
+            dtos.add(dto);
+        }
+        return dtos;
     }
-
 }
