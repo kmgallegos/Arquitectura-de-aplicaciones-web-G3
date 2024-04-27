@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.helpyou.dtos.UserDTO;
+import pe.edu.upc.helpyou.dtos.SubscriptionCountDTO;
 import pe.edu.upc.helpyou.entities.Userr;
 import pe.edu.upc.helpyou.servicesinterfaces.IUserService;
+import pe.edu.upc.helpyou.servicesinterfaces.ISubscriptionService;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,38 +19,39 @@ public class UserController {
     @Autowired
     private IUserService uS;
 
+    @Autowired
+    private ISubscriptionService subscriptionService;
+
     @PostMapping
-    public void registrar(@RequestBody UserDTO u)
-    {
+    public void registrar(@RequestBody UserDTO u) {
         ModelMapper m= new ModelMapper();
         Userr userr =m.map(u, Userr.class);
         uS.insert(userr);
     }
 
     @PutMapping
-    public void modificar(@RequestBody UserDTO u)
-    {
+    public void modificar(@RequestBody UserDTO u) {
         ModelMapper m= new ModelMapper();
         Userr userr =m.map(u, Userr.class);
         uS.insert(userr);
     }
 
     @GetMapping
-    public List<UserDTO> list(){
-
+    public List<UserDTO> list() {
         return uS.list().stream().map(y->{
             ModelMapper m=new ModelMapper();
             return m.map(y,UserDTO.class);
         }).collect(Collectors.toList());
     }
+
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id){
+    public void eliminar(@PathVariable("id") Integer id) {
         uS.delete(id);
     }
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyAuthority('ADMIN','MODERADOR') and !hasAnyAuthority('USER')" )
-    public UserDTO listarId(@PathVariable("id") Integer id){
+    public UserDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m= new ModelMapper();
         UserDTO dto=m.map(uS.listId(id),UserDTO.class);
         return dto;
@@ -56,18 +59,16 @@ public class UserController {
 
     @GetMapping("/buscar por dni")
     @PreAuthorize("hasAnyAuthority('ADMIN','MODERADOR') and !hasAnyAuthority('USER')" )
-    public List<UserDTO> findByDniUser(@RequestParam String dni){
+    public List<UserDTO> findByDniUser(@RequestParam String dni) {
         return uS.findByDniUser(dni).stream().map(y->{
             ModelMapper m=new ModelMapper();
             return m.map(y,UserDTO.class);
         }).collect(Collectors.toList());
     }
 
-@GetMapping("/report/subscriptions")
-public List<SubscriptionCountDTO> getNumberOfUsersPerSubscription() {
-    // Aquí llamarías al servicio que implementaste para obtener el número de usuarios por tipo de suscripción
-    return subscriptionService.getNumberOfUsersPerSubscription();
-}
-
-    
+    @GetMapping("/report/subscriptions")
+    public List<SubscriptionCountDTO> getNumberOfUsersPerSubscription() {
+        // Aquí llamarías al servicio que implementaste para obtener el número de usuarios por tipo de suscripción
+        return subscriptionService.getNumberOfUsersPerSubscription();
+    }
 }
