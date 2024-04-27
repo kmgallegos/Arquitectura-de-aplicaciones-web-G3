@@ -10,4 +10,7 @@ public interface ISubscriptionService {
     public List<Subscription> list();
     List<String[]> findIncomesBySubscriptionStatusAndMonth();
 
+    public List<SubscriptionCountDTO> countUsersBySubscriptionType();
+
+
 }
