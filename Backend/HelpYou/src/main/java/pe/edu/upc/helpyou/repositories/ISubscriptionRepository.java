@@ -2,6 +2,7 @@ package pe.edu.upc.helpyou.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import pe.edu.upc.helpyou.dtos.SubscriptionCountDTO;
 import pe.edu.upc.helpyou.entities.Subscription;
 
 import java.util.List;
@@ -15,4 +16,10 @@ public interface ISubscriptionRepository extends JpaRepository<Subscription, Int
             "AND EXTRACT(YEAR FROM s.subscription_end_date) = EXTRACT(YEAR FROM CURRENT_DATE) \n" +
             "GROUP BY s.status_subscription, EXTRACT(MONTH FROM s.subscription_end_date)",nativeQuery = true)
     public List<String[]> findIncomesBySubscriptionStatusAndMonth();
+
+
+    //Número de usuarios por tipo de suscripción
+   @Query("SELECT new pe.edu.upc.helpyou.dtos.SubscriptionCountDTO(s.typeSubscription, COUNT(u)) FROM Subscription s JOIN s.userr u GROUP BY s.typeSubscription")
+    public List<SubscriptionCountDTO> countUsersBySubscriptionType();
 }
+
