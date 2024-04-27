@@ -62,4 +62,12 @@ public class UserController {
             return m.map(y,UserDTO.class);
         }).collect(Collectors.toList());
     }
+
+@GetMapping("/report/subscriptions")
+public List<SubscriptionCountDTO> getNumberOfUsersPerSubscription() {
+    // Aquí llamarías al servicio que implementaste para obtener el número de usuarios por tipo de suscripción
+    return subscriptionService.getNumberOfUsersPerSubscription();
+}
+
+    
 }
