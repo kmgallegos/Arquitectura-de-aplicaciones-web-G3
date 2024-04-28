@@ -2,7 +2,7 @@ package pe.edu.upc.helpyou.servicesimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.upc.demosi63.dtos.SubscriptionTypeCountDTO;
+import pe.edu.upc.helpyou.dtos.SubscriptionTypeCountDTO;
 import pe.edu.upc.helpyou.entities.Subscription;
 import pe.edu.upc.helpyou.repositories.ISubscriptionRepository;
 import pe.edu.upc.helpyou.servicesinterfaces.ISubscriptionService;
