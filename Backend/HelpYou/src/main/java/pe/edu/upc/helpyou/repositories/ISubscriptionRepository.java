@@ -15,4 +15,17 @@ public interface ISubscriptionRepository extends JpaRepository<Subscription, Int
             "AND EXTRACT(YEAR FROM s.subscription_end_date) = EXTRACT(YEAR FROM CURRENT_DATE) \n" +
             "GROUP BY s.status_subscription, EXTRACT(MONTH FROM s.subscription_end_date)",nativeQuery = true)
     public List<String[]> findIncomesBySubscriptionStatusAndMonth();
+
+    // conteo de la columna "type_subcription" que como valor tenga "hosting" y "dominio" de la tabla subcription Erick Nuñez
+
+    @Query(value = "SELECT\n" +
+            "  CASE WHEN type_subscription = 'hosting' THEN 'Hosting' ELSE 'Dominio' END AS subscription_type,\n" +
+            "  COUNT(*) AS subscription_count\n" +
+            "FROM Subscription \n" +
+            "WHERE type_subscription IN ('hosting', 'dominio')\n" +
+            "GROUP BY type_subscription",nativeQuery = true)
+
+    public List<String[]> findIncomesBySubscriptionType();
+
+
 }

@@ -19,12 +19,13 @@ public class Counseling {
     private String commentCounseling;
 
     @ManyToOne
-    @JoinColumn(name = "idUser")
-    private Userr userr;
+    @JoinColumn(name = "user_id")
+    private Users userr;
 
     public Counseling() {}
 
-    public Counseling(int idCounseling, LocalDate meetingDateCounseling, Time meetingTimeCounseling, String commentCounseling, Userr userr) {
+
+    public Counseling(int idCounseling, LocalDate meetingDateCounseling, Time meetingTimeCounseling, String commentCounseling, Users userr) {
         this.idCounseling = idCounseling;
         this.meetingDateCounseling = meetingDateCounseling;
         this.meetingTimeCounseling = meetingTimeCounseling;
@@ -36,47 +37,39 @@ public class Counseling {
         return idCounseling;
     }
 
-    public LocalDate getMeetingDateCounseling() {
-        return meetingDateCounseling;
-    }
-
-    public Time getMeetingTimeCounseling() {
-        return meetingTimeCounseling;
-    }
-
-    public String getCommentCounseling() {
-        return commentCounseling;
-    }
-
-    public Userr getUserr() {
-        return userr;
-    }
-
-    public Userr getUser() {
-        return userr;
-    }
-
     public void setIdCounseling(int idCounseling) {
         this.idCounseling = idCounseling;
+    }
+
+    public LocalDate getMeetingDateCounseling() {
+        return meetingDateCounseling;
     }
 
     public void setMeetingDateCounseling(LocalDate meetingDateCounseling) {
         this.meetingDateCounseling = meetingDateCounseling;
     }
 
+    public Time getMeetingTimeCounseling() {
+        return meetingTimeCounseling;
+    }
+
     public void setMeetingTimeCounseling(Time meetingTimeCounseling) {
         this.meetingTimeCounseling = meetingTimeCounseling;
+    }
+
+    public String getCommentCounseling() {
+        return commentCounseling;
     }
 
     public void setCommentCounseling(String commentCounseling) {
         this.commentCounseling = commentCounseling;
     }
 
-    public void setUserr(Userr userr) {
-        this.userr = userr;
+    public Users getUserr() {
+        return userr;
     }
 
-    public void setUser(Userr userr) {
+    public void setUserr(Users userr) {
         this.userr = userr;
     }
 }

@@ -12,48 +12,23 @@ public class Forum {
     private String descriptionForum;
 
     @ManyToOne
-    @JoinColumn(name = "idUser")
-    private Userr userr;
+    @JoinColumn(name = "user_id")
+    private Users userr;
 
     public Forum() {}
 
-
-    public Forum(int idForum, String nameForum, String descriptionForum, Userr userr) {
+    public Forum(int idForum, String nameForum, String descriptionForum, Users userr) {
         this.idForum = idForum;
         this.nameForum = nameForum;
         this.descriptionForum = descriptionForum;
         this.userr = userr;
     }
 
-    public int getIdForum() {
-        return idForum;
-    }
-
-    public void setIdForum(int idForum) {
-        this.idForum = idForum;
-    }
-
-    public String getNameForum() {
-        return nameForum;
-    }
-
-    public void setNameForum(String nameForum) {
-        this.nameForum = nameForum;
-    }
-
-    public String getDescriptionForum() {
-        return descriptionForum;
-    }
-
-    public void setDescriptionForum(String descriptionForum) {
-        this.descriptionForum = descriptionForum;
-    }
-
-    public Userr getUserr() {
+    public Users getUserr() {
         return userr;
     }
 
-    public void setUserr(Userr userr) {
+    public void setUserr(Users userr) {
         this.userr = userr;
     }
 }
