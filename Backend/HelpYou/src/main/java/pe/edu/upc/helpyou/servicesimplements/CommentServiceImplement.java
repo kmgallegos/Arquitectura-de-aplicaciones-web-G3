@@ -2,6 +2,7 @@ package pe.edu.upc.helpyou.servicesimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.demosi63.dtos.UserCommentCountDTO;
 import pe.edu.upc.helpyou.entities.Comment;
 import pe.edu.upc.helpyou.repositories.ICommentRepository;
 import pe.edu.upc.helpyou.servicesinterfaces.ICommentService;
@@ -31,5 +32,20 @@ public class CommentServiceImplement implements ICommentService {
     @Override
     public Comment listId(int id) {
         return cR.findById(id).orElse(new Comment());
+    }
+    
+    @Override
+    public List<UserCommentCountDTO> countCommentsByUser() {
+        List<Object[]> results = cR.countCommentsByUser();
+        List<UserCommentCountDTO> dtos = new ArrayList<>();
+
+        for (Object[] result : results) {
+            UserCommentCountDTO dto = new UserCommentCountDTO();
+            dto.setUsername((String) result[0]);
+            dto.setCommentCount(((Number) result[1]).intValue());
+            dtos.add(dto);
+        }
+
+        return dtos;
     }
 }
