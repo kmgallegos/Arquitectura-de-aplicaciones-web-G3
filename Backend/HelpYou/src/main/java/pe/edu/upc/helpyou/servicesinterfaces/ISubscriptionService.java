@@ -1,6 +1,6 @@
 package pe.edu.upc.helpyou.servicesinterfaces;
 
-import pe.edu.upc.demosi63.dtos.SubscriptionTypeCountDTO;
+import pe.edu.upc.helpyou.dtos.SubscriptionTypeCountDTO;
 import org.springframework.stereotype.Repository;
 import pe.edu.upc.helpyou.entities.Subscription;
 
