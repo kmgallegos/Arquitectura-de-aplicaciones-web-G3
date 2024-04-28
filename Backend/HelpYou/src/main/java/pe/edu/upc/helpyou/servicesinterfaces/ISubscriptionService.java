@@ -1,5 +1,6 @@
 package pe.edu.upc.helpyou.servicesinterfaces;
 
+import pe.edu.upc.demosi63.dtos.SubscriptionTypeCountDTO;
 import org.springframework.stereotype.Repository;
 import pe.edu.upc.helpyou.entities.Subscription;
 
@@ -10,7 +11,7 @@ public interface ISubscriptionService {
     public List<Subscription> list();
     List<String[]> findIncomesBySubscriptionStatusAndMonth();
 
-    public List<SubscriptionCountDTO> countUsersBySubscriptionType();
+    public List<SubscriptionTypeCountDTO> countUsersBySubscriptionType();
 
 
 }
