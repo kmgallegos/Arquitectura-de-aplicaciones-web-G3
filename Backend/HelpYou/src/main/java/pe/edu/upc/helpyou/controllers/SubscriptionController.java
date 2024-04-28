@@ -71,6 +71,11 @@ public class SubscriptionController {
         }
         return dtolista;
     }
+    @GetMapping("/users-by-subscription-type")
+    public List<SubscriptionTypeCountDTO> getUsersBySubscriptionType() {
+        return sS.countUsersBySubscriptionType();
+    }
+
 
 
 }
