@@ -3,7 +3,7 @@ package pe.edu.upc.helpyou.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import pe.edu.upc.demosi63.entities.Subscription;
+import pe.edu.upc.helpyou.entities.Subscription;
 
 import java.util.List;
 
