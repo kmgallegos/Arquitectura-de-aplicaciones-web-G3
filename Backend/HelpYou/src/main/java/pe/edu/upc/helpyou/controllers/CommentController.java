@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.helpyou.dtos.CommentDTO;
+import pe.edu.upc.demosi63.dtos.UserCommentCountDTO;
 import pe.edu.upc.helpyou.entities.Comment;
 import pe.edu.upc.helpyou.servicesinterfaces.ICommentService;
 
@@ -48,4 +49,11 @@ public class CommentController {
         CommentDTO dto = m.map(cS.listId(id), CommentDTO.class);
         return dto;
     }
+
+    @GetMapping("/comments-by-user")
+    public List<UserCommentCountDTO> getCommentsByUser() {
+        return cS.countCommentsByUser();
+    }
+
+    
 }
