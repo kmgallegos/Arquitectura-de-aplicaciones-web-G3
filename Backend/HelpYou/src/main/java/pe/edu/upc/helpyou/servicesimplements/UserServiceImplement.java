@@ -2,9 +2,10 @@ package pe.edu.upc.helpyou.servicesimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.upc.helpyou.entities.Users;
+import pe.edu.upc.helpyou.entities.Userr;
 import pe.edu.upc.helpyou.repositories.IUserRepository;
 import pe.edu.upc.helpyou.servicesinterfaces.IUserService;
+
 
 import java.util.List;
 
@@ -14,22 +15,23 @@ public class UserServiceImplement implements IUserService {
     private IUserRepository uR;
 
     @Override
-    public void insert(Users usuario) {
-        uR.save(usuario);
-    }
+    public void insert(Userr userr) {uR.save(userr);}
 
     @Override
-    public List<Users> list() {
-        return uR.findAll();
-    }
+    public List<Userr> list() {return uR.findAll();}
 
     @Override
-    public void delete(Long idUsuario) {
-        uR.deleteById(idUsuario);
-    }
+    public void delete(int id)  {uR.deleteById(id);}
 
     @Override
-    public Users listarId(Long idUsuario) {
-        return uR.findById(idUsuario).orElse(new Users());
+    public Userr listId(int id) {return uR.findById(id).orElse(new Userr());}
+
+    @Override
+    public List<Userr> findByDniUser(String dni) {
+        return uR.findByDniUser(dni);
     }
+
+
+
 }
+

@@ -1,7 +1,5 @@
 package pe.edu.upc.helpyou.entities;
 import jakarta.persistence.*;
-
-
 @Entity
 @Table(name = "Comment")
 public class Comment {
@@ -12,39 +10,27 @@ public class Comment {
     private String descriptionComment;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private Users userr;
+    @JoinColumn(name = "idUser")
+    private Userr userr;
 
     public Comment() {}
 
-
-    public Comment(int idComment, String descriptionComment, Users userr) {
+    public Comment(int idComment, String descriptionComment, Userr userr) {
         this.idComment = idComment;
         this.descriptionComment = descriptionComment;
         this.userr = userr;
     }
 
-    public int getIdComment() {
-        return idComment;
-    }
+    public int getIdComment() { return idComment; }
+    public void setIdComment(int idComment) { this.idComment = idComment; }
+    public String getDescriptionComment() { return descriptionComment; }
+    public void setDescriptionComment(String descriptionComment) { this.descriptionComment = descriptionComment; }
 
-    public void setIdComment(int idComment) {
-        this.idComment = idComment;
-    }
-
-    public String getDescriptionComment() {
-        return descriptionComment;
-    }
-
-    public void setDescriptionComment(String descriptionComment) {
-        this.descriptionComment = descriptionComment;
-    }
-
-    public Users getUserr() {
+    public Userr getUser() {
         return userr;
     }
 
-    public void setUserr(Users userr) {
+    public void setUser(Userr userr) {
         this.userr = userr;
     }
 }

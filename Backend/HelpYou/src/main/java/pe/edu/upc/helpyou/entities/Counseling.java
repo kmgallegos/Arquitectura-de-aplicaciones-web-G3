@@ -19,13 +19,12 @@ public class Counseling {
     private String commentCounseling;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private Users userr;
+    @JoinColumn(name = "idUser")
+    private Userr userr;
 
     public Counseling() {}
 
-
-    public Counseling(int idCounseling, LocalDate meetingDateCounseling, Time meetingTimeCounseling, String commentCounseling, Users userr) {
+    public Counseling(int idCounseling, LocalDate meetingDateCounseling, Time meetingTimeCounseling, String commentCounseling, Userr userr) {
         this.idCounseling = idCounseling;
         this.meetingDateCounseling = meetingDateCounseling;
         this.meetingTimeCounseling = meetingTimeCounseling;
@@ -37,39 +36,47 @@ public class Counseling {
         return idCounseling;
     }
 
-    public void setIdCounseling(int idCounseling) {
-        this.idCounseling = idCounseling;
-    }
-
     public LocalDate getMeetingDateCounseling() {
         return meetingDateCounseling;
-    }
-
-    public void setMeetingDateCounseling(LocalDate meetingDateCounseling) {
-        this.meetingDateCounseling = meetingDateCounseling;
     }
 
     public Time getMeetingTimeCounseling() {
         return meetingTimeCounseling;
     }
 
-    public void setMeetingTimeCounseling(Time meetingTimeCounseling) {
-        this.meetingTimeCounseling = meetingTimeCounseling;
-    }
-
     public String getCommentCounseling() {
         return commentCounseling;
+    }
+
+    public Userr getUserr() {
+        return userr;
+    }
+
+    public Userr getUser() {
+        return userr;
+    }
+
+    public void setIdCounseling(int idCounseling) {
+        this.idCounseling = idCounseling;
+    }
+
+    public void setMeetingDateCounseling(LocalDate meetingDateCounseling) {
+        this.meetingDateCounseling = meetingDateCounseling;
+    }
+
+    public void setMeetingTimeCounseling(Time meetingTimeCounseling) {
+        this.meetingTimeCounseling = meetingTimeCounseling;
     }
 
     public void setCommentCounseling(String commentCounseling) {
         this.commentCounseling = commentCounseling;
     }
 
-    public Users getUserr() {
-        return userr;
+    public void setUserr(Userr userr) {
+        this.userr = userr;
     }
 
-    public void setUserr(Users userr) {
+    public void setUser(Userr userr) {
         this.userr = userr;
     }
 }

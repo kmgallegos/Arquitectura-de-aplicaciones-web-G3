@@ -2,11 +2,9 @@ package pe.edu.upc.helpyou.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.helpyou.dtos.SubscriptionDTO;
 import pe.edu.upc.helpyou.dtos.SubscriptionIncomeDTO;
-import pe.edu.upc.helpyou.dtos.SubscriptionTypeDTO;
 import pe.edu.upc.helpyou.entities.Subscription;
 import pe.edu.upc.helpyou.servicesinterfaces.ISubscriptionService;
 
@@ -39,7 +37,6 @@ public class SubscriptionController {
     }
 
     @GetMapping("/incomes")
-    @PreAuthorize("hasAnyAuthority('MOD', 'ADMIN')")
     public List<SubscriptionIncomeDTO> listSubscriptionIncomes() {
 
         List<String[]> filalista = sS.findIncomesBySubscriptionStatusAndMonth();
@@ -55,22 +52,4 @@ public class SubscriptionController {
 
         return dtolista;
     }
-
-    @GetMapping("/tipos")
-
-    public List<SubscriptionTypeDTO> listSubscriptionIncomestype() {
-
-        List<String[]> filalista = sS.findIncomesBySubscriptionType();
-        List<SubscriptionTypeDTO> dtolista = new ArrayList<>();
-
-        for (String[] columna : filalista) {
-            SubscriptionTypeDTO dto = new SubscriptionTypeDTO();
-            dto.setSuscripciónTipo((String) columna[0]);
-            dto.setConteoTipo(Integer.parseInt(columna[1]));
-            dtolista.add(dto);
-        }
-        return dtolista;
-    }
-
-
 }

@@ -14,7 +14,7 @@ public class Service {
     private String descriptionService;
     @Column(name ="valuationService", length = 20)
     private String valuationService;
-    @Column(name = "addressService", length = 255)
+    @Column(name = "addressService", length = 255  )
     private String addressService;
     @Column(name = "stateService", length = 20)
     private String stateService;

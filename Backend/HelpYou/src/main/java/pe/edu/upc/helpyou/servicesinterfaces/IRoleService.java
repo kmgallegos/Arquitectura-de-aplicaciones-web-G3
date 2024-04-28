@@ -5,13 +5,9 @@ import pe.edu.upc.helpyou.entities.Role;
 import java.util.List;
 
 public interface IRoleService {
-    public void insert(Role rol);
-
+    public void insert(Role role);
     public List<Role> list();
-
-    public void delete(Long idRol);
-
-    public Role listarId(Long idRol);
-
-    public List<String[]> findTypeRoles();
+    public void delete(int id);
+    public Role listId(int id);
+    public List<Role> findByNameRole(String nameRole);
 }

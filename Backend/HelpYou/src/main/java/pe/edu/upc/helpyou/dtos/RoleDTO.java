@@ -1,19 +1,24 @@
 package pe.edu.upc.helpyou.dtos;
 
-import pe.edu.upc.helpyou.entities.Users;
-
 public class RoleDTO {
-    private Long id;
-
-    private String rol;
-
+    private int idRole;
+    private String nameRole;
     private String descriptionR;
 
+    public int getIdRole() {
+        return idRole;
+    }
 
-    private Users user;
+    public void setIdRole(int idRole) {
+        this.idRole = idRole;
+    }
 
-    public Long getId() {
-        return id;
+    public String getNameRole() {
+        return nameRole;
+    }
+
+    public void setNameRole(String nameRole) {
+        this.nameRole = nameRole;
     }
 
     public String getDescriptionR() {
@@ -22,25 +27,5 @@ public class RoleDTO {
 
     public void setDescriptionR(String descriptionR) {
         this.descriptionR = descriptionR;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
-
-    public Users getUser() {
-        return user;
-    }
-
-    public void setUser(Users user) {
-        this.user = user;
     }
 }

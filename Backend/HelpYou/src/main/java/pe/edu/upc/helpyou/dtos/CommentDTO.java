@@ -1,11 +1,11 @@
 package pe.edu.upc.helpyou.dtos;
 
-import pe.edu.upc.helpyou.entities.Users;
+import pe.edu.upc.helpyou.entities.Userr;
 
 public class CommentDTO {
     private int idComment;
     private String descriptionComment;
-    private Users userr;
+    private Userr userr;
 
 
     public int getIdComment() {
@@ -24,11 +24,11 @@ public class CommentDTO {
         this.descriptionComment = descriptionComment;
     }
 
-    public Users getUserr() {
+    public Userr getUserr() {
         return userr;
     }
 
-    public void setUserr(Users userr) {
+    public void setUserr(Userr userr) {
         this.userr = userr;
     }
 }

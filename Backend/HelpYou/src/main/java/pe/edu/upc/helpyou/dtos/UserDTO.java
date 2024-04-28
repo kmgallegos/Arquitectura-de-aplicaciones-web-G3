@@ -2,56 +2,24 @@ package pe.edu.upc.helpyou.dtos;
 
 import pe.edu.upc.helpyou.entities.Role;
 
-import java.util.List;
-
 public class UserDTO {
-    private Long id;
-
-
-    private String username;
-
-    private String password;
-    private Boolean enabled;
-
+    private int idUser;
     private String firstNameUser;
-
     private String lastNameUser;
-
     private String phoneNumberUser;
-
     private String regionUser;
-
     private String dniUser;
-
     private String photoUser;
-
+    private String passwordUser;
     private String emailUser;
+    private Role role;
 
-
-    private List<Role> roles;
-
-    public Long getId() {
-        return id;
+    public int getIdUser() {
+        return idUser;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public String getFirstNameUser() {
@@ -102,6 +70,14 @@ public class UserDTO {
         this.photoUser = photoUser;
     }
 
+    public String getPasswordUser() {
+        return passwordUser;
+    }
+
+    public void setPasswordUser(String passwordUser) {
+        this.passwordUser = passwordUser;
+    }
+
     public String getEmailUser() {
         return emailUser;
     }
@@ -110,19 +86,11 @@ public class UserDTO {
         this.emailUser = emailUser;
     }
 
-    public List<Role> getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
-
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

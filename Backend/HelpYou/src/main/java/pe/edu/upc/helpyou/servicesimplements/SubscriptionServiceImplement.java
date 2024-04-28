@@ -25,10 +25,4 @@ public class SubscriptionServiceImplement implements ISubscriptionService {
     public List<String[]> findIncomesBySubscriptionStatusAndMonth() {
         return sR.findIncomesBySubscriptionStatusAndMonth();
     }
-
-    @Override
-    public List<String[]> findIncomesBySubscriptionType() {
-        return sR.findIncomesBySubscriptionType();
-    }
-
 }

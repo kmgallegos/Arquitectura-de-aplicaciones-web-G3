@@ -1,23 +1,18 @@
 package pe.edu.upc.helpyou.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
-public class Users implements Serializable {
+@Table(name = "Userr")
+public class Userr implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(length = 30, unique = true)
-    private String username;
-    @Column(length = 200)
-    private String password;
-    private Boolean enabled;
+    private int idUser;
     @Column(name = "firstNameUser", nullable = false, length = 100)
     private String firstNameUser;
     @Column(name = "lastNameUser", nullable = false, length = 100)
@@ -30,42 +25,46 @@ public class Users implements Serializable {
     private String dniUser;
     @Column(name = "photoUser") //puede ser nulo
     private String photoUser;
+    @Column(name = "passwordUser")
+    private String passwordUser;
     @Column(name = "emailUser")
     private String emailUser;
+
+    private Boolean enabled;
+
+
+    //@ManyToOne
+    //@JoinColumn(name = "idRole")
+    //private Role role;
+
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
-    private List<Role> roles;
+    @JsonIgnore
+    private List<Role> rol;
 
-    public Long getId() {
-        return id;
+    public Userr() {
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
+    public Userr(int idUser, String firstNameUser, String lastNameUser, String phoneNumberUser, String regionUser, String dniUser, String photoUser, String passwordUser, String emailUser, Boolean enabled, List<Role> rol) {
+        this.idUser = idUser;
+        this.firstNameUser = firstNameUser;
+        this.lastNameUser = lastNameUser;
+        this.phoneNumberUser = phoneNumberUser;
+        this.regionUser = regionUser;
+        this.dniUser = dniUser;
+        this.photoUser = photoUser;
+        this.passwordUser = passwordUser;
+        this.emailUser = emailUser;
         this.enabled = enabled;
+        this.rol = rol;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public String getFirstNameUser() {
@@ -116,6 +115,14 @@ public class Users implements Serializable {
         this.photoUser = photoUser;
     }
 
+    public String getPasswordUser() {
+        return passwordUser;
+    }
+
+    public void setPasswordUser(String passwordUser) {
+        this.passwordUser = passwordUser;
+    }
+
     public String getEmailUser() {
         return emailUser;
     }
@@ -124,11 +131,24 @@ public class Users implements Serializable {
         this.emailUser = emailUser;
     }
 
-    public List<Role> getRoles() {
-        return roles;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public List<Role> getRol() {
+        return rol;
+    }
+
+    public void setRol(List<Role> rol) {
+        this.rol = rol;
     }
 }
+
+
+
+
+

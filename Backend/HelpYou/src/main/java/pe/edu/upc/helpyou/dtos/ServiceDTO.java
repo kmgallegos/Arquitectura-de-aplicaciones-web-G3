@@ -1,5 +1,7 @@
 package pe.edu.upc.helpyou.dtos;
 
+import jakarta.persistence.Column;
+
 public class ServiceDTO {
     private int idService;
     private String nameService;

@@ -22,8 +22,8 @@ public class Subscription {
     private String priceSubscription;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
-    private Users userr;
+    @JoinColumn(name = "idUser")
+    private Userr userr;
 
     @ManyToOne
     @JoinColumn(name = "idService")
@@ -31,7 +31,7 @@ public class Subscription {
 
     public Subscription(){}
 
-    public Subscription(int idSubscription, Date dataStartSubscription, Date subscriptionEndDate, String typeSubscription, String statusSubscription, String priceSubscription, Users userr, Service service) {
+    public Subscription(int idSubscription, Date dataStartSubscription, Date subscriptionEndDate, String typeSubscription, String statusSubscription, String priceSubscription, Userr userr, Service service) {
         this.idSubscription = idSubscription;
         this.dataStartSubscription = dataStartSubscription;
         this.subscriptionEndDate = subscriptionEndDate;
@@ -90,11 +90,11 @@ public class Subscription {
         this.priceSubscription = priceSubscription;
     }
 
-    public Users getUserr() {
+    public Userr getUserr() {
         return userr;
     }
 
-    public void setUserr(Users userr) {
+    public void setUserr(Userr userr) {
         this.userr = userr;
     }
 
