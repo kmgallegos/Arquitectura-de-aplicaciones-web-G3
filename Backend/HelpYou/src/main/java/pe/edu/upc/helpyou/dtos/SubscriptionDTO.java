@@ -1,7 +1,8 @@
 package pe.edu.upc.helpyou.dtos;
 
+import pe.edu.upc.helpyou.entities.Users;
 import pe.edu.upc.helpyou.entities.Service;
-import pe.edu.upc.helpyou.entities.Userr;
+
 
 import java.util.Date;
 
@@ -13,8 +14,9 @@ public class SubscriptionDTO {
     private String typeSubscription;
     private String statusSubscription;
     private String priceSubscription;
-    private Userr userr;
-    private Service service;
+    private Users userr;
+    private pe.edu.upc.helpyou.entities.Service service;
+
 
 
 
@@ -66,11 +68,11 @@ public class SubscriptionDTO {
         this.priceSubscription = priceSubscription;
     }
 
-    public Userr getUserr() {
+    public Users getUserr() {
         return userr;
     }
 
-    public void setUserr(Userr userr) {
+    public void setUserr(Users userr) {
         this.userr = userr;
     }
 

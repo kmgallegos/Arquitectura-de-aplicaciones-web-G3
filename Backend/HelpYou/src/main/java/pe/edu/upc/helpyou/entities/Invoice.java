@@ -16,12 +16,13 @@ public class Invoice {
     private float totalInvoice;
 
     @ManyToOne
-    @JoinColumn(name = "idUser")
-    private Userr userr;
+    @JoinColumn(name = "user_id")
+    private Users userr;
 
     public Invoice(){}
 
-    public Invoice(int idInvoice, LocalDate dateInvoice, float totalInvoice, Userr userr) {
+
+    public Invoice(int idInvoice, LocalDate dateInvoice, float totalInvoice, Users userr) {
         this.idInvoice = idInvoice;
         this.dateInvoice = dateInvoice;
         this.totalInvoice = totalInvoice;
@@ -52,11 +53,11 @@ public class Invoice {
         this.totalInvoice = totalInvoice;
     }
 
-    public Userr getUserr() {
+    public Users getUserr() {
         return userr;
     }
 
-    public void setUserr(Userr userr) {
+    public void setUserr(Users userr) {
         this.userr = userr;
     }
 }

@@ -1,13 +1,13 @@
 package pe.edu.upc.helpyou.dtos;
 
-import pe.edu.upc.helpyou.entities.Userr;
+import pe.edu.upc.helpyou.entities.Users;
 
 public class ForumDTO {
 
     private int idForum;
     private String nameForum;
     private String descriptionForum;
-    private Userr userr;
+    private Users userr;
 
 
     public int getIdForum() {
@@ -34,11 +34,11 @@ public class ForumDTO {
         this.descriptionForum = descriptionForum;
     }
 
-    public Userr getUserr() {
+    public Users getUserr() {
         return userr;
     }
 
-    public void setUserr(Userr userr) {
+    public void setUserr(Users userr) {
         this.userr = userr;
     }
 }

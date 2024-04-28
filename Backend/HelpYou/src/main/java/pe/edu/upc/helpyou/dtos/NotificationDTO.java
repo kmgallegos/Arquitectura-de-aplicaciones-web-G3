@@ -1,13 +1,14 @@
 package pe.edu.upc.helpyou.dtos;
 
-import pe.edu.upc.helpyou.entities.Userr;
+import pe.edu.upc.helpyou.entities.Users;
+
 
 public class NotificationDTO {
     private int idNotification;
     private String title;
     private String description;
     private Boolean status;
-    private Userr userr;
+    private Users userr;
 
     public int getIdNotification() {
         return idNotification;
@@ -41,11 +42,11 @@ public class NotificationDTO {
         this.status = status;
     }
 
-    public Userr getUserr() {
+    public Users getUserr() {
         return userr;
     }
 
-    public void setUserr(Userr userr) {
+    public void setUserr(Users userr) {
         this.userr = userr;
     }
 }

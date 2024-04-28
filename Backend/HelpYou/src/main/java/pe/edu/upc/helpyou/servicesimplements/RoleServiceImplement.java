@@ -14,8 +14,8 @@ public class RoleServiceImplement implements IRoleService {
     private IRoleRepository rR;
 
     @Override
-    public void insert(Role role) {
-        rR.save(role);
+    public void insert(Role rol) {
+        rR.save(rol);
     }
 
     @Override
@@ -24,15 +24,17 @@ public class RoleServiceImplement implements IRoleService {
     }
 
     @Override
-    public void delete(int id) {
-        rR.deleteById(id);
+    public void delete(Long idRol) {
+        rR.deleteById(idRol);
     }
+
     @Override
-    public Role listId(int id) {
-        return rR.findById(id).orElse(new Role());
+    public Role listarId(Long idRol) {
+        return rR.findById(idRol).orElse(new Role());
     }
+
     @Override
-    public List<Role> findByNameRole(String nameRole) {
-        return rR.findByNameRole(nameRole);
+    public List<String[]> findTypeRoles() {
+        return rR.findTypeRoles();
     }
 }

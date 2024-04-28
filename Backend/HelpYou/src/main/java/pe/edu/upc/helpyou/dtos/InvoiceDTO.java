@@ -1,6 +1,7 @@
 package pe.edu.upc.helpyou.dtos;
 
-import pe.edu.upc.helpyou.entities.Userr;
+import org.springframework.security.core.userdetails.User;
+
 
 import java.time.LocalDate;
 
@@ -9,7 +10,7 @@ public class InvoiceDTO {
     private int idInvoice;
     private LocalDate dateInvoice;
     private float totalInvoice;
-    private Userr userr;
+    private User userr;
 
     public int getIdInvoice() {
         return idInvoice;
@@ -35,11 +36,11 @@ public class InvoiceDTO {
         this.totalInvoice = totalInvoice;
     }
 
-    public Userr getUserr() {
+    public User getUserr() {
         return userr;
     }
 
-    public void setUserr(Userr userr) {
+    public void setUserr(User userr) {
         this.userr = userr;
     }
 }

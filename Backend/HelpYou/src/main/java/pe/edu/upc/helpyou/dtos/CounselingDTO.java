@@ -1,7 +1,8 @@
 package pe.edu.upc.helpyou.dtos;
 
 
-import pe.edu.upc.helpyou.entities.Userr;
+import pe.edu.upc.helpyou.entities.Users;
+
 
 import java.sql.Time;
 import java.time.LocalDate;
@@ -12,7 +13,7 @@ public class CounselingDTO {
     private LocalDate meetingDateCounseling;
     private Time meetingTimeCounseling;
     private String commentCounseling;
-    private Userr userr;
+    private Users userr;
     public int getIdCounseling() {
         return idCounseling;
     }
@@ -45,11 +46,11 @@ public class CounselingDTO {
         this.commentCounseling = commentCounseling;
     }
 
-    public Userr getUserr() {
+    public Users getUserr() {
         return userr;
     }
 
-    public void setUserr(Userr userr) {
+    public void setUserr(Users userr) {
         this.userr = userr;
     }
 }

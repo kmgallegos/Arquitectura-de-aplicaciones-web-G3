@@ -1,6 +1,6 @@
 package pe.edu.upc.helpyou.dtos;
 
-import pe.edu.upc.helpyou.entities.Userr;
+import pe.edu.upc.helpyou.entities.Users;
 
 public class CardDTO {
 
@@ -10,7 +10,7 @@ public class CardDTO {
     private String month_expirationCard;
     private String year_expirationCard;
     private int cvvCard;
-    private Userr userr;
+    private Users userr;
 
     public int getIdCard() {
         return idCard;
@@ -60,11 +60,11 @@ public class CardDTO {
         this.cvvCard = cvvCard;
     }
 
-    public Userr getUserr() {
+    public Users getUserr() {
         return userr;
     }
 
-    public void setUserr(Userr userr) {
+    public void setUserr(Users userr) {
         this.userr = userr;
     }
 }

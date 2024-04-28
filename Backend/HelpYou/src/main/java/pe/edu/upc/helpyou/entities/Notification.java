@@ -16,11 +16,11 @@ public class Notification {
     private Boolean statusNotification;
 
     @ManyToOne
-    @JoinColumn(name = "idUser")
-    private Userr userr;
+    @JoinColumn(name = "user_id")
+    private Users userr;
     public Notification() {}
 
-    public Notification(int idNotification, String titleNotification, String descriptionNotification, Boolean statusNotification, Userr userr) {
+    public Notification(int idNotification, String titleNotification, String descriptionNotification, Boolean statusNotification, Users userr) {
         this.idNotification = idNotification;
         this.titleNotification = titleNotification;
         this.descriptionNotification = descriptionNotification;
@@ -44,17 +44,7 @@ public class Notification {
         return statusNotification;
     }
 
-    public Userr getUserr() {
-        return userr;
-    }
 
-    public Userr getUser() {
-        return userr;
-    }
-
-    public void setUser(Userr userr) {
-        this.userr = userr;
-    }
 
     public void setIdNotification(int idNotification) {
         this.idNotification = idNotification;
@@ -72,7 +62,11 @@ public class Notification {
         this.statusNotification = statusNotification;
     }
 
-    public void setUserr(Userr userr) {
+    public Users getUserr() {
+        return userr;
+    }
+
+    public void setUserr(Users userr) {
         this.userr = userr;
     }
 }
