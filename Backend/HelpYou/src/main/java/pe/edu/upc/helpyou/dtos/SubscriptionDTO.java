@@ -18,6 +18,8 @@ public class SubscriptionDTO {
     private pe.edu.upc.helpyou.entities.Service service;
 
 
+
+
     public int getIdSubscription() {
         return idSubscription;
     }
