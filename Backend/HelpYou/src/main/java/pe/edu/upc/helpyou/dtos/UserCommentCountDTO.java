@@ -1,4 +1,4 @@
-package pe.edu.upc.demosi63.dtos;
+package pe.edu.upc.helpyou.dtos;
 
 public class UserCommentCountDTO {
     private String username;
