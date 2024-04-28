@@ -2,8 +2,8 @@ package pe.edu.upc.helpyou.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import pe.edu.upc.helpyou.dtos.SubscriptionCountDTO;
-import pe.edu.upc.helpyou.entities.Subscription;
+import org.springframework.data.repository.query.Param;
+import pe.edu.upc.demosi63.entities.Subscription;
 
 import java.util.List;
 
@@ -17,9 +17,21 @@ public interface ISubscriptionRepository extends JpaRepository<Subscription, Int
             "GROUP BY s.status_subscription, EXTRACT(MONTH FROM s.subscription_end_date)",nativeQuery = true)
     public List<String[]> findIncomesBySubscriptionStatusAndMonth();
 
+    // conteo de la columna "type_subcription" que como valor tenga "hosting" y "dominio" de la tabla subcription Erick Nuñez
 
-    //Número de usuarios por tipo de suscripción
-   @Query("SELECT new pe.edu.upc.helpyou.dtos.SubscriptionCountDTO(s.typeSubscription, COUNT(u)) FROM Subscription s JOIN s.userr u GROUP BY s.typeSubscription")
-    public List<SubscriptionCountDTO> countUsersBySubscriptionType();
+    @Query(value = "SELECT\n" +
+            "  CASE WHEN type_subscription = 'hosting' THEN 'Hosting' ELSE 'Dominio' END AS subscription_type,\n" +
+            "  COUNT(*) AS subscription_count\n" +
+            "FROM Subscription \n" +
+            "WHERE type_subscription IN ('hosting', 'dominio')\n" +
+            "GROUP BY type_subscription",nativeQuery = true)
+
+    public List<String[]> findIncomesBySubscriptionType();
+
+    @Query(value = "SELECT s.type_subscription AS subscription_type, " +
+            "COUNT(u.id) AS user_count " +
+            "FROM subscription s JOIN users u ON s.user_id = u.id " +
+            "GROUP BY s.type_subscription", nativeQuery = true)
+    List<Object[]> countUsersBySubscriptionType();
+
 }
-
