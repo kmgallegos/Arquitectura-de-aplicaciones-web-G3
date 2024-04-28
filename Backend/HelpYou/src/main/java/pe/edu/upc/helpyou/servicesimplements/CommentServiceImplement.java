@@ -2,7 +2,7 @@ package pe.edu.upc.helpyou.servicesimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.upc.demosi63.dtos.UserCommentCountDTO;
+import pe.edu.upc.helpyou.dtos.UserCommentCountDTO;
 import pe.edu.upc.helpyou.entities.Comment;
 import pe.edu.upc.helpyou.repositories.ICommentRepository;
 import pe.edu.upc.helpyou.servicesinterfaces.ICommentService;
