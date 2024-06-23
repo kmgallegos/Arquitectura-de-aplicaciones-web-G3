@@ -1,24 +1,25 @@
 package pe.edu.upc.helpyou.entities;
 import jakarta.persistence.*;
+
 @Entity
 @Table(name = "Comment")
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idComment;
-    @Column (name = "descriptionComment", nullable = false,length=255)
+    @Column (name = "descriptionComment", nullable = false)
     private String descriptionComment;
 
     @ManyToOne
-    @JoinColumn(name = "idUser")
-    private Userr userr;
+    @JoinColumn(name = "user_id")
+    private Users user;
 
     public Comment() {}
 
-    public Comment(int idComment, String descriptionComment, Userr userr) {
-        this.idComment = idComment;
+    public Comment(Users user, String descriptionComment, int idComment) {
+        this.user = user;
         this.descriptionComment = descriptionComment;
-        this.userr = userr;
+        this.idComment = idComment;
     }
 
     public int getIdComment() { return idComment; }
@@ -26,11 +27,11 @@ public class Comment {
     public String getDescriptionComment() { return descriptionComment; }
     public void setDescriptionComment(String descriptionComment) { this.descriptionComment = descriptionComment; }
 
-    public Userr getUser() {
-        return userr;
+    public Users getUser() {
+        return user;
     }
 
-    public void setUser(Userr userr) {
-        this.userr = userr;
+    public void setUser(Users user) {
+        this.user = user;
     }
 }

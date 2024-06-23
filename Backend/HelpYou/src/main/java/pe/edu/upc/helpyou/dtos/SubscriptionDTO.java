@@ -1,18 +1,28 @@
 package pe.edu.upc.helpyou.dtos;
 
-import pe.edu.upc.helpyou.entities.Userr;
+import pe.edu.upc.helpyou.entities.Service;
+import pe.edu.upc.helpyou.entities.Users;
 
 import java.util.Date;
 
 public class SubscriptionDTO {
 
     private int idSubscription;
+
     private Date dataStartSubscription;
+
     private Date subscriptionEndDate;
+
     private String typeSubscription;
+
     private String statusSubscription;
+
     private String priceSubscription;
-    private Userr userr;
+
+
+    private Users user;
+
+
     private Service service;
 
     public int getIdSubscription() {
@@ -63,12 +73,12 @@ public class SubscriptionDTO {
         this.priceSubscription = priceSubscription;
     }
 
-    public Userr getUserr() {
-        return userr;
+    public Users getUser() {
+        return user;
     }
 
-    public void setUserr(Userr userr) {
-        this.userr = userr;
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public Service getService() {

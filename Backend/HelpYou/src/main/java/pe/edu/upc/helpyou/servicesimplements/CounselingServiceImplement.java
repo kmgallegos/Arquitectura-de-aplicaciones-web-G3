@@ -12,6 +12,7 @@ import java.util.List;
 public class CounselingServiceImplement implements ICounselingService {
     @Autowired
     private ICounselingRepository coR;
+
     @Override
     public void insert(Counseling counseling) {
         coR.save(counseling);
@@ -30,5 +31,15 @@ public class CounselingServiceImplement implements ICounselingService {
     @Override
     public Counseling listId(int id) {
         return coR.findById(id).orElse(new Counseling());
+    }
+
+    @Override
+    public void update(Counseling counseling) {
+        coR.save(counseling);
+    }
+
+    @Override
+    public List<String[]> CounselingByUser() {
+        return coR.CounselingByUser();
     }
 }

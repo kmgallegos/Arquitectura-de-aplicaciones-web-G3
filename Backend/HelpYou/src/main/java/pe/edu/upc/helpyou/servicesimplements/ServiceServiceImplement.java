@@ -3,6 +3,7 @@ package pe.edu.upc.helpyou.servicesimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.helpyou.repositories.IServiceRepository;
+import pe.edu.upc.helpyou.servicesinterfaces.IServiceService;
 
 import java.util.List;
 
@@ -34,5 +35,10 @@ public class ServiceServiceImplement implements IServiceService {
     @Override
     public List<pe.edu.upc.helpyou.entities.Service> findByNameService(String nameService) {
         return sR.findByNameService(nameService);
+    }
+
+    @Override
+    public List<String[]> UserByService() {
+        return sR.UserByServiceDTO();
     }
 }

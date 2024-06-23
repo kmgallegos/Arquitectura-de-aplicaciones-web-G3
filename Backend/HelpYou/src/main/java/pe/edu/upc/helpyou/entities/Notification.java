@@ -1,6 +1,5 @@
 package pe.edu.upc.helpyou.entities;
 
-
 import jakarta.persistence.*;
 @Entity
 @Table(name = "Notification")
@@ -16,16 +15,19 @@ public class Notification {
     private Boolean statusNotification;
 
     @ManyToOne
-    @JoinColumn(name = "idUser")
-    private Userr userr;
+    @JoinColumn(name = "user_id")
+    private Users user;
+
+
+
     public Notification() {}
 
-    public Notification(int idNotification, String titleNotification, String descriptionNotification, Boolean statusNotification, Userr userr) {
-        this.idNotification = idNotification;
-        this.titleNotification = titleNotification;
-        this.descriptionNotification = descriptionNotification;
-        this.statusNotification = statusNotification;
-        this.userr = userr;
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public int getIdNotification() {
@@ -44,17 +46,7 @@ public class Notification {
         return statusNotification;
     }
 
-    public Userr getUserr() {
-        return userr;
-    }
 
-    public Userr getUser() {
-        return userr;
-    }
-
-    public void setUser(Userr userr) {
-        this.userr = userr;
-    }
 
     public void setIdNotification(int idNotification) {
         this.idNotification = idNotification;
@@ -72,7 +64,5 @@ public class Notification {
         this.statusNotification = statusNotification;
     }
 
-    public void setUserr(Userr userr) {
-        this.userr = userr;
-    }
+
 }

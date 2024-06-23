@@ -1,12 +1,13 @@
 package pe.edu.upc.helpyou.servicesimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import pe.edu.upc.helpyou.entities.Invoice;
 import pe.edu.upc.helpyou.repositories.IInvoiceRepository;
 import pe.edu.upc.helpyou.servicesinterfaces.IInvoiceService;
 
 import java.util.List;
-@Autowired
+@Service
 public class InvoiceServiceImplement implements IInvoiceService {
     @Autowired
     private IInvoiceRepository iR;

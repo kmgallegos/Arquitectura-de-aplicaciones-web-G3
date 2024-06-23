@@ -5,6 +5,7 @@ import pe.edu.upc.helpyou.entities.Detail;
 import java.util.List;
 
 public interface IDetailService {
-    public void insert(Detail detail);
+    public void insert(Detail detail /*DetailDTO dto*/);
+
     public List<Detail> list();
 }

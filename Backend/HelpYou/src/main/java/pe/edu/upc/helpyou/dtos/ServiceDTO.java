@@ -6,6 +6,9 @@ public class ServiceDTO {
     private String valuationService;
     private String addressService;
     private String stateService;
+    private String descriptionService;
+    private int demandService;
+
 
     public int getIdService() {
         return idService;
@@ -45,5 +48,21 @@ public class ServiceDTO {
 
     public void setStateService(String stateService) {
         this.stateService = stateService;
+    }
+
+    public String getDescriptionService() {
+        return descriptionService;
+    }
+
+    public void setDescriptionService(String descriptionService) {
+        this.descriptionService = descriptionService;
+    }
+
+    public int getDemandService() {
+        return demandService;
+    }
+
+    public void setDemandService(int demandService) {
+        this.demandService = demandService;
     }
 }

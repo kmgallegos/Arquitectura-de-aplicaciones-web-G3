@@ -3,7 +3,7 @@ package pe.edu.upc.helpyou.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="Service")
+@Table(name="service")
 public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,7 +14,7 @@ public class Service {
     private String descriptionService;
     @Column(name ="valuationService", length = 20)
     private String valuationService;
-    @Column(name = "addressService", length = 255  )
+    @Column(name = "addressService", length = 255)
     private String addressService;
     @Column(name = "stateService", length = 20)
     private String stateService;

@@ -1,6 +1,6 @@
 package pe.edu.upc.helpyou.dtos;
 
-import pe.edu.upc.helpyou.entities.Userr;
+import pe.edu.upc.helpyou.entities.Users;
 
 import java.time.LocalDate;
 
@@ -9,7 +9,7 @@ public class InvoiceDTO {
     private int idInvoice;
     private LocalDate dateInvoice;
     private float totalInvoice;
-    private Userr userr;
+    private Users user;
 
     public int getIdInvoice() {
         return idInvoice;
@@ -35,11 +35,11 @@ public class InvoiceDTO {
         this.totalInvoice = totalInvoice;
     }
 
-    public Userr getUserr() {
-        return userr;
+    public Users getUser() {
+        return user;
     }
 
-    public void setUserr(Userr userr) {
-        this.userr = userr;
+    public void setUser(Users user) {
+        this.user = user;
     }
 }

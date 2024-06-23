@@ -20,4 +20,14 @@ public class NotificationServiceImplement implements INotificationService {
     public List<Notification> list() {
         return nR.findAll();
     }
+
+    @Override
+    public void delete(int id) {
+        nR.deleteById(id);
+    }
+
+    @Override
+    public List<String[]> NotificationsPerUser() {
+        return nR.NotificationsPerUser();
+    }
 }

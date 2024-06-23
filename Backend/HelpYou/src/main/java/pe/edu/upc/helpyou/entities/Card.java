@@ -15,25 +15,28 @@ public class Card {
     private String month_expirationCard;
     @Column(name = "year_expirationCard", nullable = false, length = 4)
     private String year_expirationCard;
+    @Column(name = "nameCard", nullable = false)
+    private String nameCard;
     @Column(name = "cvvCard", nullable = false)
     private int cvvCard;
 
     @ManyToOne
-    @JoinColumn(name = "idUser")
-    private Userr userr;
+    @JoinColumn(name = "user_id")
+    private Users user;
 
     public Card() {}
 
-    public Card(int idCard, String ownerCard, String number_card, String month_expirationCard, String year_expirationCard, int cvvCard, Userr userr) {
-        this.idCard = idCard;
-        this.ownerCard = ownerCard;
-        this.number_card = number_card;
-        this.month_expirationCard = month_expirationCard;
-        this.year_expirationCard = year_expirationCard;
-        this.cvvCard = cvvCard;
-        this.userr = userr;
+
+
+
+    public String getNameCard() {
+        return nameCard;
     }
 
+    public void setNameCard(String nameCard) {
+        this.nameCard = nameCard;
+    }
+    
     public int getIdCard() {
         return idCard;
     }
@@ -82,11 +85,11 @@ public class Card {
         this.cvvCard = cvvCard;
     }
 
-    public Userr getUser() {
-        return userr;
+    public Users getUser() {
+        return user;
     }
 
-    public void setUser(Userr userr) {
-        this.userr = userr;
+    public void setUser(Users user) {
+        this.user = user;
     }
 }

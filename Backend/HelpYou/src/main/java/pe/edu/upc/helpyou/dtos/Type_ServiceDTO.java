@@ -1,5 +1,7 @@
 package pe.edu.upc.helpyou.dtos;
 
+import pe.edu.upc.helpyou.entities.Service;
+
 public class Type_ServiceDTO {
 
     private int idTypeService;

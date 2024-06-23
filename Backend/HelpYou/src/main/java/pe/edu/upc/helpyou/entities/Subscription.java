@@ -22,23 +22,23 @@ public class Subscription {
     private String priceSubscription;
 
     @OneToOne
-    @JoinColumn(name = "idUser")
-    private Userr userr;
+    @JoinColumn(name = "user_id")
+    private Users user;
 
     @ManyToOne
-    @JoinColumn(name = "idService")
+    @JoinColumn(name = "service_id")
     private Service service;
 
     public Subscription(){}
 
-    public Subscription(int idSubscription, Date dataStartSubscription, Date subscriptionEndDate, String typeSubscription, String statusSubscription, String priceSubscription, Userr userr, Service service) {
+    public Subscription(int idSubscription, Date dataStartSubscription, Date subscriptionEndDate, String typeSubscription, String statusSubscription, String priceSubscription, Users user, Service service) {
         this.idSubscription = idSubscription;
         this.dataStartSubscription = dataStartSubscription;
         this.subscriptionEndDate = subscriptionEndDate;
         this.typeSubscription = typeSubscription;
         this.statusSubscription = statusSubscription;
         this.priceSubscription = priceSubscription;
-        this.userr = userr;
+        this.user = user;
         this.service = service;
     }
 
@@ -90,12 +90,12 @@ public class Subscription {
         this.priceSubscription = priceSubscription;
     }
 
-    public Userr getUserr() {
-        return userr;
+    public Users getUser() {
+        return user;
     }
 
-    public void setUserr(Userr userr) {
-        this.userr = userr;
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public Service getService() {

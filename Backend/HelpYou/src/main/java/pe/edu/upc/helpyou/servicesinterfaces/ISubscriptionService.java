@@ -5,6 +5,11 @@ import pe.edu.upc.helpyou.entities.Subscription;
 import java.util.List;
 
 public interface ISubscriptionService {
-    public void insert(Subscription subscription);
-    public List<Subscription> list();
+    void insert(Subscription subscription);
+    List<Subscription> list();
+    Subscription listId(int id);
+    void delete(int id);
+    void update(Subscription subscription);
+    List<String[]> findIncomesBySubscriptionStatusAndMonth();
+    List<String[]> findIncomesBySubscriptionType();
 }

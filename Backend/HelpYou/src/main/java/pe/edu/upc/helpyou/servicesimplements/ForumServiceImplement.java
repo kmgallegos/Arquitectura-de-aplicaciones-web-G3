@@ -7,11 +7,13 @@ import pe.edu.upc.helpyou.repositories.IForumRepository;
 import pe.edu.upc.helpyou.servicesinterfaces.IForumService;
 
 import java.util.List;
+
 @Service
 public class ForumServiceImplement implements IForumService {
 
 @Autowired
 private IForumRepository fR;
+
 
     @Override
     public void insert(Forum forum) {
@@ -24,9 +26,7 @@ private IForumRepository fR;
     }
 
     @Override
-    public void delete(int id) {
-        fR.deleteById(id);
-    }
+    public void delete(int id) {fR.deleteById(id);}
 
     @Override
     public Forum listId(int id) {

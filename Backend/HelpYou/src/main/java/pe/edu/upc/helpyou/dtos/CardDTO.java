@@ -1,16 +1,42 @@
 package pe.edu.upc.helpyou.dtos;
 
-import pe.edu.upc.helpyou.entities.Userr;
+import pe.edu.upc.helpyou.entities.Users;
 
 public class CardDTO {
 
     private int idCard;
+
     private String ownerCard;
+
     private String number_card;
+
     private String month_expirationCard;
+
     private String year_expirationCard;
+
+    private String nameCard;
+
     private int cvvCard;
-    private Userr userr;
+
+    private Users user;
+
+    private Users userr;
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
+    }
+
+    public String getNameCard() {
+        return nameCard;
+    }
+
+    public void setNameCard(String nameCard) {
+        this.nameCard = nameCard;
+    }
 
     public int getIdCard() {
         return idCard;
@@ -39,32 +65,20 @@ public class CardDTO {
     public String getMonth_expirationCard() {
         return month_expirationCard;
     }
-
     public void setMonth_expirationCard(String month_expirationCard) {
         this.month_expirationCard = month_expirationCard;
     }
-
     public String getYear_expirationCard() {
         return year_expirationCard;
     }
-
     public void setYear_expirationCard(String year_expirationCard) {
         this.year_expirationCard = year_expirationCard;
     }
-
     public int getCvvCard() {
         return cvvCard;
     }
-
     public void setCvvCard(int cvvCard) {
         this.cvvCard = cvvCard;
     }
 
-    public Userr getUserr() {
-        return userr;
-    }
-
-    public void setUserr(Userr userr) {
-        this.userr = userr;
-    }
 }

@@ -1,7 +1,6 @@
 package pe.edu.upc.helpyou.entities;
 
 import jakarta.persistence.*;
-
 import java.sql.Time;
 import java.time.LocalDate;
 
@@ -11,26 +10,24 @@ public class Counseling {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCounseling;
-    @Column (name = "meetingDateCounseling", nullable = false)
+
+    @Column(name = "meetingDateCounseling", nullable = false)
     private LocalDate meetingDateCounseling;
-    @Column (name = "meetingTimeCounseling", nullable = false)
+
+    @Column(name = "meetingTimeCounseling", nullable = false)
     private Time meetingTimeCounseling;
-    @Column (name = "commentCounseling", nullable = true,length=500)
+
+    @Column(name = "commentCounseling", nullable = true, length = 500)
     private String commentCounseling;
 
     @ManyToOne
-    @JoinColumn(name = "idUser")
-    private Userr userr;
+    @JoinColumn(name = "user_id", nullable = false)
+    private Users user;
 
     public Counseling() {}
 
-    public Counseling(int idCounseling, LocalDate meetingDateCounseling, Time meetingTimeCounseling, String commentCounseling, Userr userr) {
-        this.idCounseling = idCounseling;
-        this.meetingDateCounseling = meetingDateCounseling;
-        this.meetingTimeCounseling = meetingTimeCounseling;
-        this.commentCounseling = commentCounseling;
-        this.userr = userr;
-    }
+    // Getters y Setters
+    // ...
 
     public int getIdCounseling() {
         return idCounseling;
@@ -48,12 +45,12 @@ public class Counseling {
         return commentCounseling;
     }
 
-    public Userr getUserr() {
-        return userr;
+    public Users getUser() {
+        return user;
     }
 
-    public Userr getUser() {
-        return userr;
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public void setIdCounseling(int idCounseling) {
@@ -70,13 +67,5 @@ public class Counseling {
 
     public void setCommentCounseling(String commentCounseling) {
         this.commentCounseling = commentCounseling;
-    }
-
-    public void setUserr(Userr userr) {
-        this.userr = userr;
-    }
-
-    public void setUser(Userr userr) {
-        this.userr = userr;
     }
 }

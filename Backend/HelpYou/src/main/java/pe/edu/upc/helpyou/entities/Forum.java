@@ -1,4 +1,5 @@
 package pe.edu.upc.helpyou.entities;
+
 import jakarta.persistence.*;
 @Entity
 @Table(name = "Forum")
@@ -6,23 +7,26 @@ public class Forum {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idForum;
-    @Column (name = "name", nullable = false,length=500)
+    @Column(name = "name", nullable = false, length = 500)
     private String nameForum;
-    @Column (name = "description", nullable = false,length=500)
+    @Column(name = "description", nullable = false, length = 500)
     private String descriptionForum;
 
     @ManyToOne
-    @JoinColumn(name = "idUser")
-    private Userr userr;
+    @JoinColumn(name = "user_id")
+    private Users user;
+
+
+
 
     public Forum() {}
 
+    public Users getUser() {
+        return user;
+    }
 
-    public Forum(int idForum, String nameForum, String descriptionForum, Userr userr) {
-        this.idForum = idForum;
-        this.nameForum = nameForum;
-        this.descriptionForum = descriptionForum;
-        this.userr = userr;
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public int getIdForum() {
@@ -49,11 +53,5 @@ public class Forum {
         this.descriptionForum = descriptionForum;
     }
 
-    public Userr getUserr() {
-        return userr;
-    }
 
-    public void setUserr(Userr userr) {
-        this.userr = userr;
-    }
 }

@@ -3,18 +3,25 @@ package pe.edu.upc.helpyou.servicesimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.helpyou.entities.Role;
+import pe.edu.upc.helpyou.entities.Users;
 import pe.edu.upc.helpyou.repositories.IRoleRepository;
+import pe.edu.upc.helpyou.repositories.IUserRepository;
+import pe.edu.upc.helpyou.servicesinterfaces.IRoleService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RoleServiceImplement implements IRoleService {
     @Autowired
     private IRoleRepository rR;
 
+    @Autowired
+    private IUserRepository rRu;
+
     @Override
-    public void insert(Role role) {
-        rR.save(role);
+    public void insert(Role rol) {
+        rR.save(rol);
     }
 
     @Override
@@ -23,15 +30,27 @@ public class RoleServiceImplement implements IRoleService {
     }
 
     @Override
-    public void delete(int id) {
-        rR.deleteById(id);
+    public void delete(Long id) {
+        Optional<Role> roleOptional = rR.findById(id);
+        if (roleOptional.isPresent()) {
+            Role role = roleOptional.get();
+            Users user = role.getUser();
+            if (user != null) {
+                user.getRoles().remove(role);
+                rRu.save(user);
+            }
+            rR.delete(role);
+}
+
     }
+
     @Override
-    public Role listId(int id) {
+    public Role listarId(Long id) {
         return rR.findById(id).orElse(new Role());
     }
+
     @Override
-    public List<Role> findByNameRole(String nameRole) {
-        return rR.findByNameRole(nameRole);
+    public List<String[]> findTypeRoles() {
+        return rR.findTypeRoles();
     }
 }
