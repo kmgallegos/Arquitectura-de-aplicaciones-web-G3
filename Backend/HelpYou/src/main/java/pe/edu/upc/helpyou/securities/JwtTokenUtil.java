@@ -16,7 +16,10 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+<<<<<<< HEAD
 //Clase 1
+=======
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 @Component
 public class JwtTokenUtil implements Serializable {
 
@@ -79,4 +82,8 @@ public class JwtTokenUtil implements Serializable {
         final String username = getUsernameFromToken(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4

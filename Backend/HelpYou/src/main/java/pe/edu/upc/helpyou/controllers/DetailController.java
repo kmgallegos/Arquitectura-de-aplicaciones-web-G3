@@ -19,15 +19,22 @@ public class DetailController {
     @PostMapping
     public void registrar(@RequestBody DetailDTO d)
     {
+<<<<<<< HEAD
         ModelMapper m=new ModelMapper();
         Detail dt=m.map(d,Detail.class);
         dS.insert(dt);
         //dS.insert(d);
+=======
+        ModelMapper m= new ModelMapper();
+        Detail det =m.map(d, Detail.class);
+        dS.insert(det);
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
     }
 
     @GetMapping
     public List<DetailDTO> list(){
 
+<<<<<<< HEAD
         //return dS.list().stream().map(y->{
         //    ModelMapper m=new ModelMapper();
         //   return m.map(y,DetailDTO.class);
@@ -39,5 +46,11 @@ public class DetailController {
         }).collect(Collectors.toList());
 
         return lista;
+=======
+        return dS.list().stream().map(y->{
+            ModelMapper m=new ModelMapper();
+            return m.map(y,DetailDTO.class);
+        }).collect(Collectors.toList());
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
     }
 }

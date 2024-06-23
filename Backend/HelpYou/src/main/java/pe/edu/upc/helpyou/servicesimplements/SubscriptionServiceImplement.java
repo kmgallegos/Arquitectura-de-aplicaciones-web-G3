@@ -33,6 +33,7 @@ public class SubscriptionServiceImplement implements ISubscriptionService {
     public List<String[]> findIncomesBySubscriptionStatusAndMonth() {
         return sR.findIncomesBySubscriptionStatusAndMonth();
     }
+<<<<<<< HEAD
 
     @Override
     public List<String[]> findIncomesBySubscriptionType() {
@@ -53,4 +54,6 @@ public class SubscriptionServiceImplement implements ISubscriptionService {
     public void update(Subscription subscription) {
         sR.save(subscription);
     }
+=======
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 }

@@ -4,12 +4,20 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+<<<<<<< HEAD:Backend/HelpYou/src/main/java/pe/edu/upc/helpyou/entities/Users.java
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
 public class Users implements Serializable {
+=======
+import java.util.List;
+
+@Entity
+@Table(name = "Userr")
+public class Userr implements Serializable {
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4:Backend/HelpYou/src/main/java/pe/edu/upc/helpyou/entities/Userr.java
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,11 +40,17 @@ public class Users implements Serializable {
     private String dniUser;
     @Column(name = "photoUser") //puede ser nulo
     private String photoUser;
+<<<<<<< HEAD:Backend/HelpYou/src/main/java/pe/edu/upc/helpyou/entities/Users.java
+=======
+    @Column(name = "passwordUser")
+    private String passwordUser;
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4:Backend/HelpYou/src/main/java/pe/edu/upc/helpyou/entities/Userr.java
     @Column(name = "emailUser")
     private String emailUser;
     @JsonIgnore
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 
+<<<<<<< HEAD:Backend/HelpYou/src/main/java/pe/edu/upc/helpyou/entities/Users.java
     private List<Role>roles= new ArrayList<>();
 
     public Users() {
@@ -47,6 +61,25 @@ public class Users implements Serializable {
         this.username = username;
         this.password = password;
         this.enabled = enabled;
+=======
+    private Boolean enabled;
+
+
+    //@ManyToOne
+    //@JoinColumn(name = "idRole")
+    //private Role role;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    private List<Role> rol;
+
+    public Userr() {
+    }
+
+    public Userr(int idUser, String firstNameUser, String lastNameUser, String phoneNumberUser, String regionUser, String dniUser, String photoUser, String passwordUser, String emailUser, Boolean enabled, List<Role> rol) {
+        this.idUser = idUser;
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4:Backend/HelpYou/src/main/java/pe/edu/upc/helpyou/entities/Userr.java
         this.firstNameUser = firstNameUser;
         this.lastNameUser = lastNameUser;
         this.phoneNumberUser = phoneNumberUser;
@@ -54,11 +87,20 @@ public class Users implements Serializable {
         this.dniUser = dniUser;
         this.photoUser = photoUser;
         this.emailUser = emailUser;
+<<<<<<< HEAD:Backend/HelpYou/src/main/java/pe/edu/upc/helpyou/entities/Users.java
         this.roles = roles;
     }
 
     public List<Role> getRoles() {
         return roles;
+=======
+        this.enabled = enabled;
+        this.rol = rol;
+    }
+
+    public int getIdUser() {
+        return idUser;
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4:Backend/HelpYou/src/main/java/pe/edu/upc/helpyou/entities/Userr.java
     }
 
     public void setRoles(List<Role> roles) {
@@ -152,4 +194,29 @@ public class Users implements Serializable {
     public void setEmailUser(String emailUser) {
         this.emailUser = emailUser;
     }
+<<<<<<< HEAD:Backend/HelpYou/src/main/java/pe/edu/upc/helpyou/entities/Users.java
 }
+=======
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public List<Role> getRol() {
+        return rol;
+    }
+
+    public void setRol(List<Role> rol) {
+        this.rol = rol;
+    }
+}
+
+
+
+
+
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4:Backend/HelpYou/src/main/java/pe/edu/upc/helpyou/entities/Userr.java

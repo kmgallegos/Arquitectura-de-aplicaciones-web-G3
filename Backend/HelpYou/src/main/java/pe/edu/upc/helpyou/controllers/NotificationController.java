@@ -4,11 +4,17 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.helpyou.dtos.NotificationDTO;
+<<<<<<< HEAD
 import pe.edu.upc.helpyou.dtos.NotificationsPerUserDTO;
 import pe.edu.upc.helpyou.entities.Notification;
 import pe.edu.upc.helpyou.servicesinterfaces.INotificationService;
 
 import java.util.ArrayList;
+=======
+import pe.edu.upc.helpyou.entities.Notification;
+import pe.edu.upc.helpyou.servicesinterfaces.INotificationService;
+
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,6 +32,7 @@ public class NotificationController {
         nS.insert(det);
     }
 
+<<<<<<< HEAD
     @GetMapping("/Notificacion-por-usuario")
     public List<NotificationsPerUserDTO> NotificationsPerUser() {
         List<String[]> filalista = nS.NotificationsPerUser();
@@ -40,6 +47,8 @@ public class NotificationController {
         return dtolista;
     }
 
+=======
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
     @GetMapping
     public List<NotificationDTO> list(){
 
@@ -48,10 +57,13 @@ public class NotificationController {
             return m.map(y,NotificationDTO.class);
         }).collect(Collectors.toList());
     }
+<<<<<<< HEAD
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         nS.delete(id);
     }
 
 
+=======
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 }

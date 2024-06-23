@@ -7,6 +7,10 @@ import pe.edu.upc.helpyou.entities.Users;
 import pe.edu.upc.helpyou.repositories.IRoleRepository;
 import pe.edu.upc.helpyou.repositories.IUserRepository;
 import pe.edu.upc.helpyou.servicesinterfaces.IUserService;
+<<<<<<< HEAD
+=======
+
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 
 import java.util.List;
 
@@ -52,10 +56,15 @@ public class UserServiceImplement implements IUserService {
     }
 
 
+<<<<<<< HEAD
     @Override
     public List<Users> list() {
         return uR.findAll();
     }
+=======
+
+}
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 
     @Override
     public void delete(Long idUsuario) {

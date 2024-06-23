@@ -21,8 +21,11 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
 
+<<<<<<< HEAD
 //@Profile(value = {"development", "production"})
 //Clase S7
+=======
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -63,8 +66,11 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req -> req
                         .requestMatchers(antMatcher("/login")).permitAll()
+<<<<<<< HEAD
                         .requestMatchers(antMatcher("/usuarios")).permitAll()
                         .requestMatchers(antMatcher("/roles")).permitAll()
+=======
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())

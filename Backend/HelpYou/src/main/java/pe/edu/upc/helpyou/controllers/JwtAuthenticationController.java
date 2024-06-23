@@ -1,5 +1,6 @@
 package pe.edu.upc.helpyou.controllers;
 
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,6 +18,15 @@ import pe.edu.upc.helpyou.securities.JwtTokenUtil;
 import pe.edu.upc.helpyou.servicesimplements.JwtUserDetailsService;
 
 //Clase 3
+=======
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RestController;
+import pe.edu.upc.helpyou.securities.JwtTokenUtil;
+import pe.edu.upc.helpyou.servicesimplements.JwtUserDetailsService;
+
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 @RestController
 @CrossOrigin
 public class JwtAuthenticationController {
@@ -28,6 +38,7 @@ public class JwtAuthenticationController {
     private JwtUserDetailsService userDetailsService;
 
 
+<<<<<<< HEAD
     @PostMapping("/login")
     public ResponseEntity<JwtResponse> login(@RequestBody JwtRequest req) throws Exception {
         authenticate(req.getUsername(), req.getPassword());
@@ -48,3 +59,6 @@ public class JwtAuthenticationController {
 
     }
 }
+=======
+}
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4

@@ -1,5 +1,7 @@
 package pe.edu.upc.helpyou.dtos;
 
+import pe.edu.upc.helpyou.entities.Role;
+
 public class UserDTO {
     private Long id;
     private String username;

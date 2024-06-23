@@ -2,15 +2,22 @@ package pe.edu.upc.helpyou.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.helpyou.dtos.CounselingByUserDTO;
+=======
+import org.springframework.web.bind.annotation.*;
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 import pe.edu.upc.helpyou.dtos.CounselingDTO;
 import pe.edu.upc.helpyou.entities.Counseling;
 import pe.edu.upc.helpyou.servicesinterfaces.ICounselingService;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,6 +43,7 @@ public class CounselingController {
                 }).collect(Collectors.toList());
     }
 
+<<<<<<< HEAD
     @GetMapping("/citas-por-usuario")
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<CounselingByUserDTO> counselingByUser() {
@@ -54,6 +62,8 @@ public class CounselingController {
 
 
 
+=======
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
         cS.delete(id);
@@ -65,6 +75,7 @@ public class CounselingController {
         CounselingDTO dto = modelMapper.map(cS.listId(id), CounselingDTO.class);
         return dto;
     }
+<<<<<<< HEAD
 
     @PutMapping("/{id}")
     public ResponseEntity<CounselingDTO> update(@PathVariable("id") Integer id, @RequestBody CounselingDTO counselingDTO) {
@@ -80,4 +91,6 @@ public class CounselingController {
             return ResponseEntity.notFound().build();
         }
     }
+=======
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 }

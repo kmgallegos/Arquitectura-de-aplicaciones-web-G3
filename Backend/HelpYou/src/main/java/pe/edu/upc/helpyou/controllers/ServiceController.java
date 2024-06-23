@@ -20,7 +20,11 @@ public class ServiceController {
     private IServiceService sS;
 
     @PostMapping
+<<<<<<< HEAD
     public void register(@RequestBody ServiceDTO s) {
+=======
+    public void register(ServiceDTO s) {
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
         ModelMapper m =new ModelMapper();
         Service srv=m.map(s,Service.class);
         sS.insert(srv);
@@ -61,7 +65,10 @@ public class ServiceController {
     }
 
     @GetMapping("/Usuarios-por-servicio")
+<<<<<<< HEAD
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+=======
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
     public List<UserByServiceDTO> getUsersByService() {
         List<String[]> results = sS.UserByService();
         List<UserByServiceDTO> dtos = new ArrayList<>();

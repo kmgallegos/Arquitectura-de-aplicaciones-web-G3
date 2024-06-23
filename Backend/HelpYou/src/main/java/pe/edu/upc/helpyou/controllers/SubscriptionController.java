@@ -2,11 +2,17 @@ package pe.edu.upc.helpyou.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.helpyou.dtos.SubscriptionDTO;
 import pe.edu.upc.helpyou.dtos.SubscriptionIncomeDTO;
 import pe.edu.upc.helpyou.dtos.SubscriptionTypeDTO;
+=======
+import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.helpyou.dtos.SubscriptionDTO;
+import pe.edu.upc.helpyou.dtos.SubscriptionIncomeDTO;
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 import pe.edu.upc.helpyou.entities.Subscription;
 import pe.edu.upc.helpyou.servicesinterfaces.ISubscriptionService;
 
@@ -22,13 +28,21 @@ public class SubscriptionController {
     private ISubscriptionService sS;
 
     @PostMapping
+<<<<<<< HEAD
     public void registrar(@RequestBody SubscriptionDTO s) {
         ModelMapper m = new ModelMapper();
         Subscription ca = m.map(s, Subscription.class);
+=======
+    public void registrar(@RequestBody SubscriptionDTO s)
+    {
+        ModelMapper m= new ModelMapper();
+        Subscription ca =m.map(s, Subscription.class);
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
         sS.insert(ca);
     }
 
     @GetMapping
+<<<<<<< HEAD
     public List<SubscriptionDTO> list() {
         return sS.list().stream().map(y -> {
             ModelMapper m = new ModelMapper();
@@ -58,6 +72,19 @@ public class SubscriptionController {
 
     @GetMapping("/incomes")
     public List<SubscriptionIncomeDTO> listSubscriptionIncomes() {
+=======
+    public List<SubscriptionDTO> list(){
+
+        return sS.list().stream().map(y->{
+            ModelMapper m=new ModelMapper();
+            return m.map(y,SubscriptionDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/incomes")
+    public List<SubscriptionIncomeDTO> listSubscriptionIncomes() {
+
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
         List<String[]> filalista = sS.findIncomesBySubscriptionStatusAndMonth();
         List<SubscriptionIncomeDTO> dtolista = new ArrayList<>();
 
@@ -68,6 +95,7 @@ public class SubscriptionController {
             dto.setIngresosGenerados(Double.parseDouble(columna[2]));
             dtolista.add(dto);
         }
+<<<<<<< HEAD
         return dtolista;
     }
 
@@ -86,4 +114,9 @@ public class SubscriptionController {
         return dtoLista;
     }
 
+=======
+
+        return dtolista;
+    }
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 }

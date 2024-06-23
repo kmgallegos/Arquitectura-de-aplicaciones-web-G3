@@ -5,7 +5,10 @@ import org.springframework.stereotype.Service;
 import pe.edu.upc.helpyou.entities.Role;
 import pe.edu.upc.helpyou.entities.Users;
 import pe.edu.upc.helpyou.repositories.IRoleRepository;
+<<<<<<< HEAD
 import pe.edu.upc.helpyou.repositories.IUserRepository;
+=======
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 import pe.edu.upc.helpyou.servicesinterfaces.IRoleService;
 
 import java.util.List;

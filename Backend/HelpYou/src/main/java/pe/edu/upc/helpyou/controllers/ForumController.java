@@ -15,17 +15,23 @@ import java.util.stream.Collectors;
 public class ForumController {
     @Autowired
     private IForumService fS;
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
     @PostMapping
     public void registrar(@RequestBody ForumDTO f){
         ModelMapper m=new ModelMapper();
         Forum fo=m.map(f,Forum.class);
         fS.insert(fo);
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
     @GetMapping
     public List<ForumDTO> list(){
 
@@ -34,12 +40,19 @@ public class ForumController {
             return m.map(y,ForumDTO.class);
         }).collect(Collectors.toList());
     }
+<<<<<<< HEAD
 
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
         fS.delete(id);
     }
 
+=======
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id") Integer id){
+        fS.delete(id);
+    }
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
     @GetMapping("/{id}")
     public ForumDTO listarId(@PathVariable("id") Integer id){
         ModelMapper m= new ModelMapper();

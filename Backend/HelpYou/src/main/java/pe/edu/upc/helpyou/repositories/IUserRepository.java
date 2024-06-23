@@ -1,6 +1,7 @@
 package pe.edu.upc.helpyou.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+<<<<<<< HEAD
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -43,3 +44,15 @@ public interface IUserRepository extends JpaRepository<Users, Long> {
     public void insRol(@Param("rol") String authority, @Param("user_id") Long user_id);
 
 }
+=======
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.stereotype.Repository;
+import pe.edu.upc.helpyou.entities.Userr;
+
+import java.util.List;
+@EnableJpaRepositories
+@Repository
+public interface IUserRepository extends JpaRepository<Userr, Integer> {
+    public List<Userr>findByDniUser(String dni);
+}
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4

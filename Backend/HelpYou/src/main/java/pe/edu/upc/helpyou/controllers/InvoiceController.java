@@ -27,6 +27,7 @@ public class InvoiceController {
     @GetMapping
     public List<InvoiceDTO> list(){
 
+<<<<<<< HEAD
         //return iiS.list().stream().map(y->{
         //    ModelMapper m=new ModelMapper();
         //    return m.map(y, InvoiceDTO.class);
@@ -41,5 +42,11 @@ public class InvoiceController {
             System.out.println(dto.getIdInvoice());
         }
         return lista;
+=======
+        return iiS.list().stream().map(y->{
+            ModelMapper m=new ModelMapper();
+            return m.map(y,InvoiceDTO.class);
+        }).collect(Collectors.toList());
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
     }
 }

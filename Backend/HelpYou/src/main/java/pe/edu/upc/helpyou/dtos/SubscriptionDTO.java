@@ -1,7 +1,11 @@
 package pe.edu.upc.helpyou.dtos;
 
 import pe.edu.upc.helpyou.entities.Service;
+<<<<<<< HEAD
 import pe.edu.upc.helpyou.entities.Users;
+=======
+import pe.edu.upc.helpyou.entities.Userr;
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 
 import java.util.Date;
 
@@ -24,6 +28,8 @@ public class SubscriptionDTO {
 
 
     private Service service;
+
+
 
     public int getIdSubscription() {
         return idSubscription;

@@ -7,6 +7,7 @@ import pe.edu.upc.helpyou.entities.Role;
 
 import java.util.List;
 
+<<<<<<< HEAD
 @Repository
 public interface IRoleRepository extends JpaRepository<Role, Long> {
     //un conteo de la columna "rol" que como valor tenga "MOD" , "ADMIN" y "CLIENT" de la tabla roles
@@ -18,3 +19,8 @@ public interface IRoleRepository extends JpaRepository<Role, Long> {
             "            GROUP BY rol;",nativeQuery = true)
     public List<String[]> findTypeRoles();
 }
+=======
+public interface IRoleRepository extends JpaRepository<Role, Integer> {
+    public List<Role> findByNameRole(String nameRole);
+}
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4

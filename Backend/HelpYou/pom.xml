@@ -47,12 +47,22 @@
             <artifactId>modelmapper</artifactId>
             <version>3.2.0</version>
         </dependency>
+<<<<<<< HEAD
 
+=======
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <dependency>
+<<<<<<< HEAD
+=======
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
             <version>0.11.5</version>
@@ -68,8 +78,11 @@
             <version>0.11.5</version>
         </dependency>
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
     </dependencies>
 
     <build>

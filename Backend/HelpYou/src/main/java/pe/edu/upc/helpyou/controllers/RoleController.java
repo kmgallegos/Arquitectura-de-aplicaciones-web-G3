@@ -2,6 +2,14 @@ package pe.edu.upc.helpyou.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
+=======
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.helpyou.dtos.RoleDTO;
+import pe.edu.upc.helpyou.entities.Role;
+import pe.edu.upc.helpyou.servicesinterfaces.IRoleService;
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +27,21 @@ import java.util.stream.Collectors;
 public class RoleController {
 
     @Autowired
+<<<<<<< HEAD
     private IRoleService rS;
+=======
+    private IRoleService rR;
+    @PostMapping
+
+    public void registrar(@RequestBody RoleDTO r){
+        ModelMapper m=new ModelMapper();
+        Role ro=m.map(r,Role.class);
+        rR.insert(ro);
+    }
+    @GetMapping
+    @PreAuthorize("hasAnyAuthority('ADMIN','MODERADOR') and !hasAnyAuthority('USER')" )
+    public List<RoleDTO> list(){
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 
     @PostMapping
     public void registrar(@RequestBody RoleDTO dto) {
@@ -41,6 +63,7 @@ public class RoleController {
     }
 
     @GetMapping("/{id}")
+<<<<<<< HEAD
     public RoleDTO listarId(@PathVariable("id") Long id) {
         ModelMapper m = new ModelMapper();
         RoleDTO dto = m.map(rS.listarId(id), RoleDTO.class);
@@ -48,6 +71,18 @@ public class RoleController {
     }
 
     @GetMapping
+=======
+    @PreAuthorize("hasAnyAuthority('ADMIN','MODERADOR') and !hasAnyAuthority('USER')" )
+    public RoleDTO listId(@PathVariable("id") Integer id){
+        ModelMapper m= new ModelMapper();
+        RoleDTO dto=m.map(rR.listId(id),RoleDTO.class);
+        return dto;
+    }
+
+    @GetMapping("/buscar")
+    @PreAuthorize("hasAnyAuthority('ADMIN','MODERADOR') and !hasAnyAuthority('USER')" )
+    public List<RoleDTO> FindNameRole(@RequestParam String name){
+>>>>>>> d78e6a716b12648eb1b9dd204ce477dc0b2853b4
 
     public List<RoleDTO> listar() {
         return rS.list().stream().map(x -> {
